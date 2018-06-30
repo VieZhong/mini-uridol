@@ -10,7 +10,12 @@ Page({
         takeSession: false,
         requestResult: ''
     },
-
+    onShow: opts => {
+        console.log('onload')
+        wx.navigateTo({
+            url:'../home/home'
+        })
+    },
     // 用户登录示例
     bindGetUserInfo: function () {
         if (this.data.logged) return
