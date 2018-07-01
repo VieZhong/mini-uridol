@@ -1,15 +1,15 @@
 //app.js
-const qcloud = require('./vendor/wafer2-client-sdk/index')
-var config = require('./config')
+
 var util = require('./utils/util.js');
 var STORE_KEY = 'weapp_session_F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'
 App({
     onLaunch: function() {
-        // qcloud.setLoginUrl(config.service.loginUrl)
+
         wx.cloud.init({
-            // env: 'sft-test-c5bf8f',
-            traceUser: true
+          env: 'heyli-9b1eec',
+          traceUser: true
         })
+
         //需要判断用户是否登录过
         const store_key = wx.getStorageSync(STORE_KEY);
         if (!store_key) {
@@ -27,6 +27,7 @@ App({
                         }).catch(err => {
                             console.log('登陆错误' + err)
                         })
+
 
                     } else {
                         console.log('登陆错误' + res.errMsg);
