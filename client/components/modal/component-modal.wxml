@@ -5,7 +5,7 @@
 		<image mode="aspectFit" src=""></image>
 		<view class="uder-text">
 			<text class='text-block'>正脸得到的结果更准确</text>
-		<text class='text-block'>请保持微笑噢^o^</text>
+			<text class='text-block'>请保持微笑噢^o^</text>
 		</view>
 		<button type="default" bindtap="_onTap" class="button">Go it</button>
 	</view>
