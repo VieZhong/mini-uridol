@@ -1,12 +1,10 @@
 {
 	"client": "./client",
-	"svr": "./server",
 	"miniprogramRoot": "./client",
-	"qcloudRoot": "./server",
 	"setting": {
 		"newFeature": true
 	},
-	"appid": "wx0df19af0220bd189",
+	"appid": "wx54a85d47e13e8c5c",
 	"projectname": "mini-uridol",
 	"condition": {}
 }
