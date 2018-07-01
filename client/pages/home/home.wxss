@@ -1,16 +1,30 @@
- page{
-    width: 100%;
-    height: 100%;
-  }
-.title{
-	text-align: center;
-	display: block;
-	margin: 0 auto;
-}
-.bottom{
-	width: 300rpx;
-	position: absolute;
-	bottom: 20rpx;
-	left: 50%;
-	margin-left:-150rpx;
-}
+ page {
+     width: 100%;
+     height: 100%;
+ }
+
+ .title {
+     text-align: center;
+     display: block;
+     margin: 0 auto;
+     line-height: 224rpx;
+ }
+
+ .bottom {
+     width: 300rpx;
+     position: absolute;
+     bottom: 20rpx;
+     left: 50%;
+     margin-left: -150rpx;
+ }
+ .flex-container{
+ 	display: -webkit-flex;
+    display: flex;
+    flex-wrap:wrap;
+ }
+ .flex-item-space1{
+ 	flex-grow:1;
+ }
+ .flex-item-space1{
+ 	flex-grow:2
+ }
