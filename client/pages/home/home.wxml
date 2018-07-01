@@ -1,3 +1,5 @@
 <view>
-    
+    <text class="title">你是我们中的谁</text>
+    <button type="default" bindtap="onStartMatch" class="bottom">开始匹配</button>
+    <component-modal bindmyevent="onMyEvent" id="modal"></component-modal>
 </view>

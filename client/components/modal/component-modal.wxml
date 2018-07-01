@@ -1,0 +1,13 @@
+<view class="modal {{isShowModal?'show-modal':'hideModal'}}" >
+	<view class="modal-mask" bindtap="hideModal"></view>
+	<view class="model-content {{isShowModal?'modal-animation':''}}">
+		<text class='text-block'>{{title}}</text>
+		<image mode="aspectFit" src=""></image>
+		<view class="uder-text">
+			<text class='text-block'>正脸得到的结果更准确</text>
+		<text class='text-block'>请保持微笑噢^o^</text>
+		</view>
+		<button type="default" bindtap="_onTap" class="button">Go it</button>
+	</view>
+	<slot></slot>
+</view>

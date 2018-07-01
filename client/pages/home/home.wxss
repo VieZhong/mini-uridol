@@ -1,0 +1,16 @@
+ page{
+    width: 100%;
+    height: 100%;
+  }
+.title{
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+}
+.bottom{
+	width: 300rpx;
+	position: absolute;
+	bottom: 20rpx;
+	left: 50%;
+	margin-left:-150rpx;
+}

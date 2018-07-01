@@ -1,0 +1,56 @@
+ page{
+    width: 100%;
+    height: 100%;
+  }
+  .modal{
+  	width: 100%;
+    height: 100%;
+  }
+.modal-mask{
+	position: fixed;
+	top:0;
+	z-index:888;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+.model-content{	
+	background: whitesmoke;
+	position: fixed;
+	z-index:999;
+	width: 80%;
+	border: 1rpx solid #ccc;
+	border-radius: 10rpx;
+	margin-left: 10%;
+}
+.uder-text{
+	margin: 10px 0;
+}
+.text-block{
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+.button{
+	width: 200rpx;
+	margin-bottom: 15rpx;
+}
+.show-modal{
+	 visibility: visible;	
+}
+.hideModal{
+	 visibility: hidden;
+}
+.modal-animation{
+	animation: zoom 0.6s;
+	-webkit-animation: zoom 0.6s;
+}
+@-webkit-keyframes zoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+@keyframes zoom{
+	from{transform: scale(0)}
+	to{transform: scale(1);}
+}
+
