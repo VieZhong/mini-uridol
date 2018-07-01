@@ -1,24 +1,24 @@
 //app.js
-var qcloud = require('./vendor/wafer2-client-sdk/index')
+// var qcloud = require('./vendor/wafer2-client-sdk/index')
 var config = require('./config')
 
 App({
     onLaunch: function() {
-        // qcloud.setLoginUrl(config.service.loginUrl)
+
         wx.cloud.init({
-            // env: 'sft-test-c5bf8f',
-            traceUser: true
+          env: 'heyli-9b1eec',
+          traceUser: true
         })
         wx.login({
-            success: res => {
-                if (res.code) {
+            success: ({code}) => {
+                if (code) {
                     wx.cloud.callFunction({
                         name: 'loginByCode',
                         data: {
-                            code: res.code,
+                            code
                         }
-                    }).then(r => {
-                        console.log(r);
+                    }).then(({ result }) => {
+                      console.log(result);
                     }).catch(err => {
                         console.log('登陆错误' + err)
                     })
