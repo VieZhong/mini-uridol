@@ -1,0 +1,16 @@
+.img-margin{
+	margin:40rpx 44rpx 0 44rpx;
+}
+.loading-box {
+    width: 360rpx;
+    height: 110rpx;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 50%;
+    top:50%;
+    margin-left:-180rpx;
+    margin-top:-55rpx;
+    text-align: center;
+    line-height: 110rpx
+}

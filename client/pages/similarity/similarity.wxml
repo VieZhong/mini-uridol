@@ -1,0 +1,5 @@
+<view>
+	<text>和你最相似的是《{{song}}》里的{{similarity}}</text>
+	<audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio" controls loop></audio>
+	<view></view>
+</view>

@@ -1,0 +1,8 @@
+<view>
+    <view class="img-margin">
+        <img src="" />
+        <view class="loading-box">
+            正在检测你的照片...
+        </view>
+    </view>
+</view>

@@ -6,9 +6,13 @@ var STORE_KEY = 'weapp_session_F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'
 Page({
   data: {
     tempFilePaths: '',
-    firstRowList: []
+    firstRowList: [1,2,3,4],
+    fourRowList: [8,9,10,11],
+    lightNum:100,
+    isClicked:false
   },
   onStartMatch: function() {
+    // this.isClicked=true;
     this.modal = this.selectComponent('#modal');
     this.modal.showModal();
   },
