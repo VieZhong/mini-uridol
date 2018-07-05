@@ -1,5 +1,28 @@
 <view>
     <text class="title">你是我们中的谁</text>
-    <button type="default" bindtap="onStartMatch" class="bottom">开始匹配</button>
+    <view class="flex-container">
+        <view class="flex-item {{index!=0?'margin-left':''}}" wx:for="{{firstRowList}}" wx:key="index">{{index}}</view>
+    </view>
+    <view class="flex-container top-32">
+        <view class="flex-item">
+            <view class="flex-container-col">
+                <view class="flex-item-2">4</view>
+                <view class="flex-item-2 top-32">5</view>
+            </view>
+        </view>
+        <view class="flex-item-center margin-left"></view>
+        <view class="flex-item margin-left">
+            <view class="flex-container-col">
+                <view class="flex-item-2">6</view>
+                <view class="flex-item-2 top-32">7</view>
+            </view>
+        </view>
+    </view>
+    <view class="flex-container top-32">
+        <view class="flex-item {{index!=0?'margin-left':''}}" wx:for="{{fourRowList}}" wx:key="index">{{item}}</view>
+    </view>
+    <image src="../../utils/img/start-match-before.png" class="match-img" bindtap="onStartMatch" wx:if="{{!isClicked}}"></image>
+    <image src="../../utils/img/start-match-after.png" class="match-img" wx:if="{{isClicked}}">
+    </image>
     <component-modal bindmyevent="onMyEvent" id="modal"></component-modal>
 </view>
