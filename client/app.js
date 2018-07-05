@@ -1,7 +1,6 @@
 //app.js
 
 const util = require('./utils/util.js');
-const STORE_KEY = 'weapp_session_F2C224D4-2BCE-4C64-AF9F-A6D872000D1A'
 App({
     onLaunch: function() {
 
