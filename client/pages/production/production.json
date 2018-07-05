@@ -1,1 +1,5 @@
-{}
+{
+    "usingComponents": {
+        "pendant-container": "/components/pendant/component"
+    }
+}

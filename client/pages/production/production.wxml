@@ -1,4 +1,44 @@
-<view>
-    <canvas style="width: 300px; height: 200px;" canvas-id="canvas"></canvas>
-
+<view class="container">
+    <canvas class="canvas" id="canvas" canvas-id="canvas"></canvas>
+    <view class="layer-2" bind:tap="cancelSelect" id="layer">
+        <pendant-container
+            wx:for="{{currentPendant}}"
+            wx:item="item"
+            wx:key="item.key"
+            info="{{item}}"
+            bind:handle="handlePendant"
+        >
+            <image
+                class="accessory-image"
+                mode="aspectFill"
+                src="images/g-{{item.index}}-max.png"
+                data-key="{{item.key}}"
+                capture-catch:touchstart="movePendant"
+                capture-catch:touchmove="movePendant"
+                capture-catch:touchend="movePendant"
+            ></image>
+        </pendant-container>
+    </view>
+    <view class="accessory-container">   
+        <view class="accessory-list" style="width:{{storage[active].length * 120}}rpx">
+            <view class="accessory" wx:for="{{storage[active]}}" wx:item="item" wx:key="item">
+                <image mode="aspectFill" src="images/{{active == 'backgrounds' ? 'b' : 'g'}}-{{item}}.png" data-index="{{item}}" capture-catch:touchstart="chooseItem"></image>
+            </view>
+        </view>
+    </view>
+    <view class="bottom-container">
+        <view class="tool-container">
+            <view id="tool" class="tool" data-value="backgrounds" bindtap="switchActive">
+                <icon type="success"></icon>
+                <text>背景</text>
+            </view>
+            <view id="tool" class="tool" data-value="pendants" bindtap="switchActive">
+                <icon type="success"></icon>
+                <text>贴纸</text>
+            </view>
+        </view>
+        <view>
+            <image src="images/ok-btn.png" class="button" bind:tap="submit"></image>
+        </view>
+    </view>
 </view>
