@@ -1,9 +1,8 @@
+const { static_base_url } = require('../../utils/constant.js');
 
 Component({
     data: {
-        vv: () => {
-            
-        }
+        static_base_url
     },
     properties: {
         info: {

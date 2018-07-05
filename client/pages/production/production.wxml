@@ -38,7 +38,7 @@
             </view>
         </view>
         <view>
-            <image src="images/ok-btn.png" class="button" bind:tap="submit"></image>
+            <image src="{{static_base_url}}/app/ok-btn.png" class="button" bind:tap="submit"></image>
         </view>
     </view>
 </view>

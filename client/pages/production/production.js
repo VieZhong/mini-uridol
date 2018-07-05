@@ -1,3 +1,5 @@
+const { static_base_url } = require('../../utils/constant.js');
+
 Page({
     data: {
         active: "backgrounds",
@@ -10,7 +12,8 @@ Page({
         touch_start_cor: [null, null],
         canvasWidth: 0,
         canvasHeight: 0,
-        canvasContext: null
+        canvasContext: null,
+        static_base_url
     },
     onReady: function() {
         wx.createSelectorQuery().in(this).select('#canvas').boundingClientRect(({
