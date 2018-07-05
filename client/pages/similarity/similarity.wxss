@@ -1,0 +1,45 @@
+.title{
+	line-height: 140rpx;
+	text-align: center;
+	font-size: 30rpx;
+	color: #000000;
+	width: 750rpx;
+	display: block;
+	margin: 0 auto;
+}
+.music-container{
+	 width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	
+}
+.music-avatar{
+	width: 58rpx;
+	height: 58rpx;
+	border-radius: 50%;
+}
+.music-item{
+	margin-left:32rpx;
+	width: 360rpx;
+}
+.song-name{
+	display: block;
+	font-size: 26rpx;
+}
+.music-player{
+	width: 58rpx;
+	height: 58rpx;
+}
+.lyric{
+	font-size: 20rpx;
+	color: #000000;
+	display: block;
+	margin-left: 20rpx;
+}
+
+.person-img{
+	display: block;
+	width: 700rpx;
+	margin: 30rpx auto;
+}
