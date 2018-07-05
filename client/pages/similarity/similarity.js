@@ -32,7 +32,7 @@ Page({
             showStartMusic: true
         });
          this.innerAudioContext.pause(() => {
-            console.log('暂停播放')；
+            console.log('暂停播放');
         })
     }
 })
