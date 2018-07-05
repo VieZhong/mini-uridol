@@ -1,5 +1,18 @@
 <view>
-	<text>和你最相似的是《{{song}}》里的{{similarity}}</text>
-	<audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio" controls loop></audio>
-	<view></view>
+    <text class="title">和你最相似的是《{{song}}》里的{{similarity}}</text>
+    <view class="music-container">
+        <image class="music-avatar" src="../../utils/img/avatar.jpg"></image>
+        <view class="music-item">
+            <text class="song-name">{{'《'+song+'》'}} </text>
+            <text class="lyric">{{lyric}}</text>
+        </view>
+        <image src="../../utils/img/start-playing.png" wx:if="{{showStartMusic}}"
+         bindtap="startMusic" class="music-player" model="aspectFit"></image>
+        <image src="../../utils/img/stop-playing.png" wx:if="{{!showStartMusic}}" 
+        bindtap="stopMusic" class="music-player" model="aspectFit"></image>
+    </view>
+
+    <view >
+        <image src="../../utils/img/meng.jpg" model="aspectFit" class="person-img"></image>
+    </view> 
 </view>
