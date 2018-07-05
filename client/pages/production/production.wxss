@@ -74,15 +74,8 @@
 .layer-2 {
     position: absolute;
     overflow: hidden;
+    z-index: 999;
 }
-
-/*.accessory-sizable {
-    height: 100rpx;
-    width: 100rpx;
-    overflow: hidden;
-    transform-origin: top left;
-    position: relative;
-}*/
 
 .accessory-image {
     width: 100%;

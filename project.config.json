@@ -2,6 +2,10 @@
 	"client": "./client",
 	"miniprogramRoot": "./client",
 	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
 		"newFeature": true
 	},
 	"appid": "wx54a85d47e13e8c5c",

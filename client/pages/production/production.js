@@ -184,12 +184,26 @@ Page({
         });
         canvasContext.draw();
 
-        wx.chooseImage({
-            sizeType: 'original',
-            sourceType: 'camera',
-            success: function(filePaths) {
-                console.log(filePaths)
-            }
+        this.setData({
+            currentPendant: []
         });
+
+        const name = `${new Date().valueOf()}${Math.ceil(Math.random() * 1000)}.png`;
+        wx.canvasToTempFilePath({
+            canvasId: 'canvas',
+            fileType: 'png',
+            success: ({tempFilePath}) => {
+                wx.cloud.uploadFile({
+                    cloudPath: `user/${name}`,
+                    filePath: tempFilePath,
+                    success: () => {
+                        const url = `${static_base_url}/user/${name}`;
+                        wx.navigateTo({
+                            url: `../result/result?url=${url}`
+                        });
+                    }
+                })
+            }
+        })
     }
 });

@@ -1,0 +1,14 @@
+.container {
+
+}
+
+.image-container {
+    width: 670rpx;
+    height: 846rpx;
+    margin: 40rpx auto 0;
+}
+
+.image-container image {
+    width: 100%;
+    height: 100%;
+}
