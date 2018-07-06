@@ -10,19 +10,63 @@
     height: 100%;
 }
 
+.copywriting-container {
+    display: flex;
+    align-items: center;
+    width: 670rpx;
+    margin: 44rpx auto 0;
+}
+
+.copywriting-container .code {
+    width: 100rpx;
+    height: 100rpx;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100rpx;
+    background-color: #ccc;
+}
+
+.copywriting-container .text {
+    flex: 1;
+    font-size: 32rpx;
+    color: rgba(0, 0, 0, .63);
+    line-height: 40rpx;
+    height: 80rpx;
+    padding-left: 40rpx;
+    margin-left: 40rpx;
+    border-left: 2rpx solid rgba(0, 0, 0, .63);
+}
+
+.scan-container {
+    width: 670rpx;
+    margin: 8rpx auto 12rpx;
+}
+
+.scan-container .scan {
+    width: 100rpx;
+    text-align: center;
+    font-size: 20rpx;
+    color: rgba(0, 0, 0, .63);
+}
+
+
 .button-container {
     width: 100%;
-    height: 180rpx;
+    height: 140rpx;
     display: flex;
     align-items: center;
     justify-content: space-around;
     border-top: 1rpx solid #e6e6e6;
-    margin-top: 80rpx;
 }
 
 .button-container .btn {
     width: 274rpx;
     height: 80rpx;
+    background-color: transparent;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    background-position: center;
+    border: 0;
+    border-radius: 40rpx;
+    margin: 0;
 }

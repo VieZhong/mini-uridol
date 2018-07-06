@@ -158,7 +158,9 @@ Page({
         const { currentBackground, currentPendant, canvasContext, canvasWidth, canvasHeight, rate } = this.data;
 
         canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
-        canvasContext.drawImage(`${static_base_url}/material/b-${currentBackground}-max.png`, 0, 0, canvasWidth, canvasHeight);
+        if(currentBackground) {
+            canvasContext.drawImage(`${static_base_url}/material/b-${currentBackground}-max.png`, 0, 0, canvasWidth, canvasHeight);
+        }
         canvasContext.save();
         
         currentPendant.forEach(p => {
@@ -177,15 +179,19 @@ Page({
                 canvasId: 'canvas',
                 fileType: 'png',
                 success: ({tempFilePath}) => {
-                    wx.cloud.uploadFile({
-                        cloudPath: `user/${name}`,
-                        filePath: tempFilePath,
-                        success: () => {
-                            const url = `${static_base_url}/user/${name}`;
-                            wx.navigateTo({
-                                url: `../result/result?url=${url}`
-                            });
-                        }
+                    console.log(tempFilePath)
+                    // wx.cloud.uploadFile({
+                    //     cloudPath: `user/${name}`,
+                    //     filePath: tempFilePath,
+                    //     success: () => {
+                    //         const url = `${static_base_url}/user/${name}`;
+                    //         // wx.navigateTo({
+                    //         //     url: `../result/result?url=${url}`
+                    //         // });
+                    //     }
+                    // })
+                    wx.saveImageToPhotosAlbum({
+                        filePath: tempFilePath
                     })
                 }
             });

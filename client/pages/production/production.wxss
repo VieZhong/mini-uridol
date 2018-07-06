@@ -2,10 +2,6 @@
     position: relative;
 }
 
-.canvas {
-    visibility: hidden;
-}
-
 .canvas, .layer-2 {
     width: 670rpx;
     height: 846rpx;

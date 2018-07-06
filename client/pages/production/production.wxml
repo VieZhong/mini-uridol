@@ -30,7 +30,7 @@
     <view class="accessory-container">   
         <view class="accessory-list" style="width:{{storage[active].length * 120}}rpx">
             <view class="accessory" wx:for="{{storage[active]}}" wx:item="item" wx:key="item">
-                <image mode="aspectFill" src="{{static_base_url}}/material/{{active == 'backgrounds' ? 'b' : 'g'}}-{{item}}.png" data-index="{{item}}" capture-catch:touchstart="chooseItem"></image>
+                <image mode="aspectFill" src="{{static_base_url}}/material/{{active == 'backgrounds' ? 'b' : 'g'}}-{{item}}.png" data-index="{{item}}" capture-catch:tap="chooseItem"></image>
             </view>
         </view>
     </view>
