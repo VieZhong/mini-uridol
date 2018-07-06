@@ -1,9 +1,5 @@
 {
   "pages":[
-    "pages/loading/loading",
-    "pages/similarity/similarity",
-    "pages/analysis/analysis",
-    "pages/home/home",
     "pages/production/production",
     "pages/home/home",
     "pages/similarity/similarity",

@@ -1,5 +1,9 @@
-<view class="container">
+<view>
     <view class="image-container">
         <image src="{{imgUrl}}"></image>
+    </view>
+    <view class="button-container">
+        <view class="btn" style="background-image: url({{static_base_url}}/app/share-btn.png)"></view>
+        <view class="btn" style="background-image: url({{static_base_url}}/app/again-btn.png)" bind:tap="playAgain"></view>
     </view>
 </view>

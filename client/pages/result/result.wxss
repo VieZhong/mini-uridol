@@ -1,6 +1,3 @@
-.container {
-
-}
 
 .image-container {
     width: 670rpx;
@@ -11,4 +8,21 @@
 .image-container image {
     width: 100%;
     height: 100%;
+}
+
+.button-container {
+    width: 100%;
+    height: 180rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 1rpx solid #e6e6e6;
+    margin-top: 80rpx;
+}
+
+.button-container .btn {
+    width: 274rpx;
+    height: 80rpx;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }

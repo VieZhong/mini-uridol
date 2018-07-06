@@ -4,8 +4,8 @@ Page({
     data: {
         active: "backgrounds",
         storage: {
-            backgrounds: [1],
-            pendants: [1, 2, 3, 4, 5, 6]
+            backgrounds: [1, 2, 3, 4, 5, 6, 7, 8],
+            pendants: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         },
         currentBackground: "",
         currentPendant: [],
@@ -30,7 +30,7 @@ Page({
         }).exec();
     },
     switchActive: function({
-        target: {
+        currentTarget: {
             id,
             dataset: {
                 value
@@ -57,7 +57,7 @@ Page({
         if (active == 'backgrounds') {
             this.setData({
                 currentBackground: index
-            }, this.updateCanvas)
+            })
         } else if (active == 'pendants') {
             this.setData({
                 currentPendant: [...currentPendant, {
@@ -69,19 +69,6 @@ Page({
                     editing: false
                 }]
             })
-        }
-    },
-    updateCanvas: function() {
-        const {
-            currentBackground,
-            canvasWidth,
-            canvasHeight,
-            canvasContext
-        } = this.data;
-        if(canvasContext) { 
-            canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
-            canvasContext.drawImage(`./images/b-${currentBackground}-max.png`, 0, 0, canvasWidth, canvasHeight);
-            canvasContext.draw();
         }
     },
     handlePendant: function({detail}) {
@@ -158,7 +145,7 @@ Page({
         }
     },
     cancelSelect: function({target:{id}}) {
-        if(id == "layer") {
+        if(id == "layer" || id == "background") {
             this.setData({
                 currentPendant: this.data.currentPendant.map(p => ({
                     ...p,
@@ -171,7 +158,7 @@ Page({
         const { currentBackground, currentPendant, canvasContext, canvasWidth, canvasHeight, rate } = this.data;
 
         canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
-        canvasContext.drawImage(`./images/b-${currentBackground}-max.png`, 0, 0, canvasWidth, canvasHeight);
+        canvasContext.drawImage(`${static_base_url}/material/b-${currentBackground}-max.png`, 0, 0, canvasWidth, canvasHeight);
         canvasContext.save();
         
         currentPendant.forEach(p => {
@@ -179,31 +166,30 @@ Page({
             canvasContext.save();
             canvasContext.translate(canvasWidth * location[0] /100 - rate * size / 2, canvasHeight * location[1] /100 - rate * size / 2);
             canvasContext.rotate(rotation * Math.PI / 180);
-            canvasContext.drawImage(`./images/g-${index}-max.png`, 0, 0, size * rate, size * rate);
+            canvasContext.drawImage(`${static_base_url}/material/g-${index}-max.png`, 0, 0, size * rate, size * rate);
             canvasContext.restore();
         });
-        canvasContext.draw();
 
-        this.setData({
-            currentPendant: []
+        canvasContext.save();
+        canvasContext.draw(false, () => {
+            const name = `${new Date().valueOf()}${Math.ceil(Math.random() * 1000)}.png`;
+            wx.canvasToTempFilePath({
+                canvasId: 'canvas',
+                fileType: 'png',
+                success: ({tempFilePath}) => {
+                    wx.cloud.uploadFile({
+                        cloudPath: `user/${name}`,
+                        filePath: tempFilePath,
+                        success: () => {
+                            const url = `${static_base_url}/user/${name}`;
+                            wx.navigateTo({
+                                url: `../result/result?url=${url}`
+                            });
+                        }
+                    })
+                }
+            });
         });
 
-        const name = `${new Date().valueOf()}${Math.ceil(Math.random() * 1000)}.png`;
-        wx.canvasToTempFilePath({
-            canvasId: 'canvas',
-            fileType: 'png',
-            success: ({tempFilePath}) => {
-                wx.cloud.uploadFile({
-                    cloudPath: `user/${name}`,
-                    filePath: tempFilePath,
-                    success: () => {
-                        const url = `${static_base_url}/user/${name}`;
-                        wx.navigateTo({
-                            url: `../result/result?url=${url}`
-                        });
-                    }
-                })
-            }
-        })
     }
 });
