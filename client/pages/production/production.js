@@ -280,6 +280,7 @@ Page({
                 width,
                 height
             } = photo;
+            console.log(width, height)
             const W_H_Rate = canvasWidth / canvasHeight;
             const w_h_rate = width / height;
             let sw = canvasWidth * 0.8,

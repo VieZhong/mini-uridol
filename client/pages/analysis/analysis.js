@@ -1,4 +1,6 @@
-const { static_base_url } = require('../../utils/constant.js');
+const {
+    static_base_url
+} = require('../../utils/constant.js');
 Page({
     onLoad: function(option) {
         this.setData({
@@ -9,11 +11,14 @@ Page({
             data: {
                 url: option.pic,
             }
-        }).then(({ errMsg, result }) => {
+        }).then(({
+            errMsg,
+            result
+        }) => {
             if (errMsg == "cloud.callFunction:ok") {
                 const value = result.value;
                 const name = result.name;
-                this.faceFuse(name,value);
+                this.faceFuse(name, value);
             }
         }).catch(err => {
             console.log('错误' + err)
@@ -28,9 +33,16 @@ Page({
                 imgUrl: userPic,
                 modelName: name
             }
-        }).then(({ errMsg, result }) => {
+        }).then(({
+            errMsg,
+            result
+        }) => {
             if (errMsg == "cloud.callFunction:ok") {
-                const {img_url,song_id,song_name} = result;
+                const {
+                    img_url,
+                    song_id,
+                    song_name
+                } = result;
                 const song_url = `${static_base_url}/music/${song_id}.mp3`;
                 wx.navigateTo({
                     url: `../similarity/similarity?value=${value}&name=${name}&fusePic=${img_url}&music_name=${song_name}&music_url=${song_url}`,
@@ -56,11 +68,11 @@ Page({
             this.setData({
                 curentNum
             })
-            if(curentNum<=3){
+            if (curentNum <= 3) {
                 this.textAnimation();
-            }else{
+            } else {
                 return;
             }
-        },2000)
+        }, 2000)
     }
 })

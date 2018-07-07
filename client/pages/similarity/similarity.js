@@ -1,6 +1,14 @@
-const { songList, static_base_url } = require('../../utils/constant.js');
+const {
+    static_base_url
+} = require('../../utils/constant.js');
 Page({
-    onLoad: function({ name, value, fusePic,music_name,music_url}) {
+    onLoad: function({
+        name,
+        value,
+        fusePic,
+        music_name,
+        music_url
+    }) {
         this.setData({
             similarity: name,
             song: music_name,
@@ -20,15 +28,15 @@ Page({
     data: {
         innerAudioContext: '',
         showStartMusic: true,
-        music_name:'',
-        music_url:'',
-        similarity:'',
+        music_name: '',
+        music_url: '',
+        similarity: '',
         fusePic: '',
         value: 0,
         posterPic: `${static_base_url}/app/generate-poster.png`,
         startPlaying: `${static_base_url}/app/start-Playing.png`,
         stopPlaying: `${static_base_url}/app/stop-playing.png`,
-        avatar:`${static_base_url}/app/avatar.jpg`,
+        avatar: `${static_base_url}/app/avatar.jpg`,
         poster: 'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000',
     },
     startMusic: function() {

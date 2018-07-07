@@ -1,9 +1,9 @@
 /**
  * Created by zyy on 2018/6/30.
  */
-const util = require('../../utils/util.js');
-const STORE_KEY = 'weapp_session_F2C224D4-2BCE-4C64-AF9F-A6D872000D1A';
-const { static_base_url } = require('../../utils/constant.js');
+const {
+    static_base_url
+} = require('../../utils/constant.js');
 Page({
     data: {
         tempFilePaths: '',
@@ -54,9 +54,9 @@ Page({
         isClicked: false,
         lightPic: `${static_base_url}/app/light-react2.png`,
         activeNum: 1,
-        timeId:0,
-        startMatchBefore:`${static_base_url}/app/start-match-before.png`,
-        startMatchAfter:`${static_base_url}/app/start-match-after.png`,
+        timeId: 0,
+        startMatchBefore: `${static_base_url}/app/start-match-before.png`,
+        startMatchAfter: `${static_base_url}/app/start-match-after.png`,
         static_base_url
     },
     onReady: function() {
@@ -116,7 +116,7 @@ Page({
         });
     },
     rollAnimation: function() {
-       this.data.timeId = setTimeout(() => {
+        this.data.timeId = setTimeout(() => {
             const num = this.data.activeNum + 1;
             this.setData({
                 activeNum: num
@@ -125,13 +125,13 @@ Page({
                 this.rollAnimation();
             } else {
                 this.setData({
-                    activeNum:1
+                    activeNum: 1
                 })
                 this.rollAnimation();
             }
         }, 300)
     },
-    unOnload: function(){
+    unOnload: function() {
         clearTimeout(this.data.timeId)
     }
 })
