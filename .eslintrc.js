@@ -6,6 +6,9 @@ module.exports = {
     "plugins": [],
     "rules": {},
     "globals": {
-        "Component": true
+        "Component": true,
+        "wx": true,
+        "Page": true,
+        "App": true
     }
 };
