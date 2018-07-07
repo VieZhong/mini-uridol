@@ -56,8 +56,8 @@ Component({
         let rate = 0;
         /**
          * It returns rate + x
-         * @params {int} x - rpx value
-         * @returns {int} real px value
+         * @params {int} x The rpx value
+         * @returns {int} The real px value
          */
         function transform(x) {
             return rate * x;
