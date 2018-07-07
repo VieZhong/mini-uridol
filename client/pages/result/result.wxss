@@ -70,3 +70,12 @@
     border-radius: 40rpx;
     margin: 0;
 }
+
+.canvas {
+    position: absolute;
+    z-index: -1;
+    width: 670rpx;
+    height: 990rpx;
+    visibility: hidden;
+    top: -1000rpx;
+}

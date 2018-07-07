@@ -6,7 +6,15 @@
             id="background"
             class="background-image"
             mode="aspectFill"
-            src="{{static_base_url}}/material/b-{{currentBackground}}-max.png"
+            src="{{storage.backgroundsUrl ? storage.backgroundsUrl[currentBackground - 1] : static_base_url + '/material/b-' + currentBackground + '-max.png'}}"
+            bind:tap="cancelSelect"
+        ></image>
+        <image
+            wx:if="{{photo}}"
+            id="person"
+            class="person-image"
+            mode="aspectFit"
+            src="{{photo.path}}"
             bind:tap="cancelSelect"
         ></image>
         <pendant-container
@@ -19,7 +27,7 @@
             <image
                 class="accessory-image"
                 mode="aspectFill"
-                src="{{static_base_url}}/material/g-{{item.index}}-max.png"
+                src="{{storage.pendantsUrl ? storage.pendantsUrl[item.index - 1] : static_base_url + '/material/g-' + item.index + '-max.png'}}"
                 data-key="{{item.key}}"
                 capture-catch:touchstart="movePendant"
                 capture-catch:touchmove="movePendant"

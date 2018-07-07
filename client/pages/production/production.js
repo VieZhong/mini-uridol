@@ -1,4 +1,27 @@
-const { static_base_url } = require('../../utils/constant.js');
+const {
+    static_base_url
+} = require('../../utils/constant.js');
+
+const getImageInfo = src => new Promise((resolve, reject) => {
+    wx.getImageInfo({
+        src,
+        success: ({
+            path,
+            width,
+            height
+        }) => {
+            resolve({
+                path,
+                width,
+                height
+            });
+        },
+        fail: e => {
+            reject(e)
+        }
+    })
+});
+
 
 Page({
     data: {
@@ -13,6 +36,7 @@ Page({
         canvasWidth: 0,
         canvasHeight: 0,
         canvasContext: null,
+        photo: null,
         static_base_url
     },
     onReady: function() {
@@ -28,6 +52,49 @@ Page({
                 canvasContext: wx.createCanvasContext('canvas')
             });
         }).exec();
+        this.getImageTmpPath();
+    },
+    onLoad: function({
+        photo_url
+    }) {
+        // const photo_url = "https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/compare/1.JPG";
+        if (photo_url) {
+            getImageInfo(photo_url).then(result => {
+                this.setData({
+                    photo: result
+                });
+            });
+        }
+    },
+    getImageTmpPath() {
+        const {
+            backgrounds,
+            pendants
+        } = this.data.storage;
+
+
+        Promise.all(backgrounds.map(b => getImageInfo(`${static_base_url}/material/b-${b}-max.png`))).then(results => {
+            this.setData({
+                storage: {
+                    ...this.data.storage,
+                    backgroundsUrl: results.map(({
+                        path
+                    }) => path)
+                }
+            });
+        });
+
+        Promise.all(pendants.map(g => getImageInfo(`${static_base_url}/material/g-${g}-max.png`))).then(results => {
+            this.setData({
+                storage: {
+                    ...this.data.storage,
+                    pendantsUrl: results.map(({
+                        path
+                    }) => path)
+                }
+            });
+        });
+
     },
     switchActive: function({
         currentTarget: {
@@ -71,28 +138,42 @@ Page({
             })
         }
     },
-    handlePendant: function({detail}) {
-        const { type, item } = detail;
-        const { currentPendant, canvasWidth, canvasHeight } = this.data;
-        if(type == "REMOVE") {
-            const { key } = item;
+    handlePendant: function({
+        detail
+    }) {
+        const {
+            type,
+            item
+        } = detail;
+        const {
+            currentPendant,
+            canvasWidth,
+            canvasHeight
+        } = this.data;
+        if (type == "REMOVE") {
+            const {
+                key
+            } = item;
             this.setData({
                 currentPendant: currentPendant.filter(p => p.key != key)
             })
-        } else if(type == "TRANSFORM") {
+        } else if (type == "TRANSFORM") {
             this.setData({
                 currentPendant: currentPendant.map(p => {
-                    if(p.key == item.key) {
+                    if (p.key == item.key) {
                         return item;
                     }
                     return p;
                 })
             })
-        } else if(type == "MOVE") {
-            const { key, distance } = item;
+        } else if (type == "MOVE") {
+            const {
+                key,
+                distance
+            } = item;
             this.setData({
                 currentPendant: currentPendant.map(p => {
-                    if(p.key != key) {
+                    if (p.key != key) {
                         return p;
                     }
                     return {
@@ -103,29 +184,43 @@ Page({
             });
         }
     },
-    movePendant: function({type, target, touches}) {
-        if(type == "touchstart") {
-            const { clientX, clientY } = touches[0];
-            const { currentPendant } = this.data;
+    movePendant: function({
+        type,
+        target,
+        touches
+    }) {
+        if (type == "touchstart") {
+            const {
+                clientX,
+                clientY
+            } = touches[0];
+            const {
+                currentPendant
+            } = this.data;
 
             this.setData({
                 touch_start_cor: [clientX, clientY],
                 currentPendant: currentPendant.map(p => {
-                    if(p.key == target.dataset.key) {
+                    if (p.key == target.dataset.key) {
                         return {
                             ...p,
                             editing: true
                         }
-                    } 
+                    }
                     return {
                         ...p,
                         editing: false
                     };
                 })
             });
-        } else if(type == "touchmove") {
-            const { clientX, clientY } = touches[0];
-            const { touch_start_cor } = this.data;
+        } else if (type == "touchmove") {
+            const {
+                clientX,
+                clientY
+            } = touches[0];
+            const {
+                touch_start_cor
+            } = this.data;
             this.handlePendant({
                 detail: {
                     type: "MOVE",
@@ -138,14 +233,18 @@ Page({
             this.setData({
                 touch_start_cor: [clientX, clientY]
             });
-        } else if(type == "touchend") {
+        } else if (type == "touchend") {
             this.setData({
                 touch_start_cor: [null, null]
             });
         }
     },
-    cancelSelect: function({target:{id}}) {
-        if(id == "layer" || id == "background") {
+    cancelSelect: function({
+        target: {
+            id
+        }
+    }) {
+        if (id == "layer" || id == "background" || id == "person") {
             this.setData({
                 currentPendant: this.data.currentPendant.map(p => ({
                     ...p,
@@ -155,20 +254,56 @@ Page({
         }
     },
     submit: function() {
-        const { currentBackground, currentPendant, canvasContext, canvasWidth, canvasHeight, rate } = this.data;
+        const {
+            currentBackground,
+            currentPendant,
+            canvasContext,
+            canvasWidth,
+            canvasHeight,
+            rate,
+            storage,
+            photo
+        } = this.data;
+
+        const {
+            backgroundsUrl,
+            pendantsUrl
+        } = storage;
 
         canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
-        if(currentBackground) {
-            canvasContext.drawImage(`${static_base_url}/material/b-${currentBackground}-max.png`, 0, 0, canvasWidth, canvasHeight);
+        if (currentBackground) {
+            canvasContext.drawImage(backgroundsUrl[currentBackground - 1], 0, 0, canvasWidth, canvasHeight);
+        }
+        if (photo) {
+            const {
+                path,
+                width,
+                height
+            } = photo;
+            const W_H_Rate = canvasWidth / canvasHeight;
+            const w_h_rate = width / height;
+            let sw = canvasWidth * 0.8,
+                sh = canvasHeight * 0.8;
+            if (w_h_rate > W_H_Rate) {
+                sh = sw / w_h_rate;
+            } else if (w_h_rate < W_H_Rate) {
+                sw = sh * w_h_rate;
+            }
+            canvasContext.drawImage(path, (canvasWidth - sw) / 2, canvasHeight - sh, sw, sh);
         }
         canvasContext.save();
-        
+
         currentPendant.forEach(p => {
-            const { size, rotation, location, index } = p;
+            const {
+                size,
+                rotation,
+                location,
+                index
+            } = p;
             canvasContext.save();
-            canvasContext.translate(canvasWidth * location[0] /100 - rate * size / 2, canvasHeight * location[1] /100 - rate * size / 2);
+            canvasContext.translate(canvasWidth * location[0] / 100 - rate * size / 2, canvasHeight * location[1] / 100 - rate * size / 2);
             canvasContext.rotate(rotation * Math.PI / 180);
-            canvasContext.drawImage(`${static_base_url}/material/g-${index}-max.png`, 0, 0, size * rate, size * rate);
+            canvasContext.drawImage(pendantsUrl[index - 1], 0, 0, size * rate, size * rate);
             canvasContext.restore();
         });
 
@@ -178,20 +313,18 @@ Page({
             wx.canvasToTempFilePath({
                 canvasId: 'canvas',
                 fileType: 'png',
-                success: ({tempFilePath}) => {
-                    console.log(tempFilePath)
-                    // wx.cloud.uploadFile({
-                    //     cloudPath: `user/${name}`,
-                    //     filePath: tempFilePath,
-                    //     success: () => {
-                    //         const url = `${static_base_url}/user/${name}`;
-                    //         // wx.navigateTo({
-                    //         //     url: `../result/result?url=${url}`
-                    //         // });
-                    //     }
-                    // })
-                    wx.saveImageToPhotosAlbum({
-                        filePath: tempFilePath
+                success: ({
+                    tempFilePath
+                }) => {
+                    wx.cloud.uploadFile({
+                        cloudPath: `user/${name}`,
+                        filePath: tempFilePath,
+                        success: () => {
+                            const url = `${static_base_url}/user/${name}`;
+                            wx.navigateTo({
+                                url: `../result/result?url=${url}`
+                            });
+                        }
                     })
                 }
             });
