@@ -11,8 +11,8 @@
         <image src="../../utils/img/stop-playing.png" wx:if="{{!showStartMusic}}" 
         bindtap="stopMusic" class="music-player" model="aspectFit"></image>
     </view>
-
-    <view >
-        <image src="../../utils/img/meng.jpg" model="aspectFit" class="person-img"></image>
+    <view class='fuse-center'>
+        <image src="{{fusePic}}" mode="aspectFit" class="person-img"></image>
     </view> 
+    <image src='{{posterPic}}' mode="aspectFit" bindtap="generatePoster" class='poster'></image>
 </view>

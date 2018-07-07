@@ -20,7 +20,8 @@ Component({
      * 组件的初始数据
      */
     data: {
-        isShowModal: false
+        isShowModal: false,
+        tipImg:'https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/wang-yi-bo.png'
     },
 
     /**

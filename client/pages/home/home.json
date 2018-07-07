@@ -1,5 +1,6 @@
 {
     "usingComponents": {
-        "component-modal": "/components/modal/component-modal"
+        "component-modal": "/components/modal/component-modal",
+        "loading": "/components/loading/loading"
     }
 }

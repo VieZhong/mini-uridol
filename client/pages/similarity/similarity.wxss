@@ -37,9 +37,19 @@
 	display: block;
 	margin-left: 20rpx;
 }
-
+.fuse-center{
+	width: 650rpx;
+	margin: 0 auto;
+}
 .person-img{
+	width: 650rpx;
+	height: 760rpx;
+	margin-top:40rpx;
+}
+.poster{
 	display: block;
-	width: 700rpx;
-	margin: 30rpx auto;
+	width: 570rpx;
+	height: 92rpx;
+	margin: 40rpx auto ;
+
 }

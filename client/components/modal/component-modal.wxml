@@ -2,7 +2,7 @@
     <view class="modal-mask" bindtap="hideModal"></view>
     <view class="model-content {{isShowModal?'modal-animation':''}}">
         <!-- <text class='text-block'>{{title}}</text> -->
-        <image mode="aspectFit" src="" class="top-img"></image>
+        <image mode="aspectFit" src="{{tipImg}}" class="top-img"></image>
         <view class="uder-text">
             <text class='text-block'>正脸得到的结果更准确</text>
             <text class='text-block'>请保持微笑噢^o^</text>

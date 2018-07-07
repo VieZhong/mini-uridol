@@ -1,8 +1,9 @@
-<view>
+<view class='analysis'>
     <view class="img-margin">
-        <img src="" />
-        <view class="loading-box">
-            正在检测你的照片...
-        </view>
+        <image src="{{userPic}}" mode='aspectFit' class='img'></image>
+    </view>
+    <view classs='flex-content'>
+        <image src="{{sharePic}}" mode='aspectFit' class='flex-item'></image>
+        <image src="{{onceMorePic}}" mode='aspectFit' class='flex-item'></image>
     </view>
 </view>

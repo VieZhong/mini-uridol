@@ -21,7 +21,21 @@
  .top-32 {
      margin-top: 32rpx;
  }
-
+ .person-img{
+     height:164rpx;
+     width:148rpx; 
+ }
+ .light-border{
+     position: absolute;
+     width: 148rpx;
+     height: 164rpx;
+     top:0;
+     left:0;
+     opacity: 0
+ }
+ .light-show{
+     opacity: 1;
+ }
  .flex-container {
      width: 100%;
      display: -webkit-flex;
@@ -38,18 +52,17 @@
 
  .flex-item {
      flex-basis: 148rpx;
-     background-color: #ccc;
      height: 164rpx;
+     position: relative;
  }
 
  .flex-item-2 {
      width: 148rpx;
      height: 164rpx;
-     background-color: #ccc;
+     position: relative;
  }
 
  .flex-item-col {
-     background-color: #ccc;
      height: 164rpx;
      width: 148rpx;
  }
@@ -60,7 +73,11 @@
 
  .flex-item-center {
      flex-basis: 338rpx;
-     background-color: #ccc;
+     height: 360rpx;
+     background-image: url(https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/center-background.jpg)
+ }
+ .center-img{
+     width: 338rpx;
      height: 360rpx;
  }
 
@@ -72,9 +89,6 @@
      text-align: center;
      display: block;
      margin: 0 auto;
- }
- .light-border {
-     border-color: red;
  }
  .match-img{
      width: 572rpx;

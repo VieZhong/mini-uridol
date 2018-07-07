@@ -1,0 +1,15 @@
+<view class='loading-backgound' wx:if="{{isLoading}}">
+	<view class='top'>
+		<text>&nbsp;</text>
+		<view class="progress-bar progress-bar-static">
+	        <view class="progress-bar progress-bar-loading">
+	        	 <image src='https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/rocket.png' mode='aspectFit'  class=' rocket animate-rokect'></image>
+	        </view>	
+	    </view>
+	</view>
+	<text class='text-center'>正在加载...</text>
+	<view class='animate-hor'>
+		<image src='https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/astronaut.png' class='animate-vertical' mode='aspectFit'></image>
+	</view>
+	<slot></slot>
+</view>
