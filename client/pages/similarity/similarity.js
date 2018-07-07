@@ -1,16 +1,16 @@
 const { songList, static_base_url } = require('../../utils/constant.js');
 Page({
-    onLoad: function({name,value,fusePic}){
+    onLoad: function({ name, value, fusePic }) {
         // const similarity ='杨超越';
         console.log(fusePic);
         const songs = songList[name];
         const song = songs[0];
         this.setData({
-            similarity:name,
+            similarity: name,
             song: song,
-            value:value,
-            fusePic:fusePic
-        }); 
+            value: value,
+            fusePic: fusePic
+        });
     },
     onReady: function(e) {
         this.innerAudioContext = wx.createInnerAudioContext()
@@ -27,9 +27,12 @@ Page({
         song: "",
         lyric: 'party girl知道,姐妹为你撑腰',
         similarity: '',
-        fusePic:'',
-        value:0,
-        posterPic:`${static_base_url}/app/generate-poster.png`,
+        fusePic: '',
+        value: 0,
+        posterPic: `${static_base_url}/app/generate-poster.png`,
+        startPlaying: `${static_base_url}/app/start-Playing.png`,
+        stopPlaying: `${static_base_url}/app/stop-playing.png`,
+        avatar:`${static_base_url}/app/avatar.jpg`,
         poster: 'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000',
     },
     startMusic: function() {
@@ -44,16 +47,16 @@ Page({
         this.setData({
             showStartMusic: true
         });
-         this.innerAudioContext.pause(() => {
+        this.innerAudioContext.pause(() => {
             console.log('暂停播放');
         })
     },
     generatePoster: function() {
-     wx.navigateTo({
-         url: `../production/production?photo_url=${this.data.fusePic}`,
-         fail: () => {
-             wx.showToast('生成海报失败');
-         }
-     })
- }
+        wx.navigateTo({
+            url: `../production/production?photo_url=${this.data.fusePic}`,
+            fail: () => {
+                wx.showToast('生成海报失败');
+            }
+        })
+    }
 })

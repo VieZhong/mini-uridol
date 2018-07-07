@@ -52,8 +52,8 @@
         </view>
     </view>
 
-    <image src="../../utils/img/start-match-before.png" class="match-img" bindtap="onStartMatch" wx:if="{{!isClicked}}"></image>
-    <image src="../../utils/img/start-match-after.png" class="match-img" wx:if="{{isClicked}}">
+    <image src="{{startMatchBefore}}" class="match-img" bindtap="onStartMatch" wx:if="{{!isClicked}}"></image>
+    <image src="{{startMatchAfter}}" class="match-img" wx:if="{{isClicked}}">
     </image>
     <component-modal bindmyevent="onMyEvent" id="modal"></component-modal>
 </view>

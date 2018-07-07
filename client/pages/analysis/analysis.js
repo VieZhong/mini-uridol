@@ -1,25 +1,25 @@
 const { static_base_url } = require('../../utils/constant.js');
 Page({
     onLoad: function(option) {
-        // console.log('analysis', option.pic);
-        // this.setData({
-        //     userPic: option.pic
-        // });
-        // wx.cloud.callFunction({
-        //     name: 'faceCompare',
-        //     data: {
-        //         url: option.pic,
-        //     }
-        // }).then(({ errMsg, result }) => {
-        //     if (errMsg == "cloud.callFunction:ok") {
-        //         console.log(result);
-        //         const value = result.value;
-        //         const name = result.name;
-        //         this.faceFuse(name,value);
-        //     }
-        // }).catch(err => {
-        //     console.log('错误' + err)
-        // })
+        console.log('analysis', option.pic);
+        this.setData({
+            userPic: option.pic
+        });
+        wx.cloud.callFunction({
+            name: 'faceCompare',
+            data: {
+                url: option.pic,
+            }
+        }).then(({ errMsg, result }) => {
+            if (errMsg == "cloud.callFunction:ok") {
+                console.log(result);
+                const value = result.value;
+                const name = result.name;
+                this.faceFuse(name,value);
+            }
+        }).catch(err => {
+            console.log('错误' + err)
+        })
     },
     faceFuse: function(name,value) {
         console.log('fusing',this.data.userPic);
@@ -47,6 +47,6 @@ Page({
     data: {
         userPic: '',
         sharePic: `${static_base_url}/app/share-btn.png`,
-        onceMorePic: `${static_base_url}/app/again-btn.png`
+        onceMorePic: `${static_base_url}/app/again-btn.png`,
     }
 })

@@ -8,7 +8,7 @@
             <text class='text-block'>请保持微笑噢^o^</text>
         </view>
         <!-- <button type="default" bindtap="_onTap" class="button">Go it</button> -->
-        <image src="../../utils/img/go-it.png" class="goit-img" bindtap="onStartMatch"
+        <image src="{{goIt}}" class="goit-img" bindtap="onStartMatch"
          bindtap="_onTap"></image>
     </view>
     <slot></slot>

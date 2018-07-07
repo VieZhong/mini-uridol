@@ -1,3 +1,4 @@
+const { static_base_url } = require('../../utils/constant.js');
 Component({
     /**
      * 组件的属性列表
@@ -21,6 +22,7 @@ Component({
      */
     data: {
         isShowModal: false,
+        goIt:`${static_base_url}/app/go-it.png`,
         tipImg:'https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/wang-yi-bo.png'
     },
 

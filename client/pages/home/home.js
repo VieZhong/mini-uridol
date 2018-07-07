@@ -54,7 +54,9 @@ Page({
         isClicked: false,
         lightPic: `${static_base_url}/app/florescent-light.png`,
         activeNum: 1,
-        timeId:0
+        timeId:0,
+        startMatchBefore:`${static_base_url}/app/start-match-before.png`,
+        startMatchAfter:`${static_base_url}/app/start-match-after.png`
     },
     onReady: function() {
         console.log('111');
