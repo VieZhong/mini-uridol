@@ -1,16 +1,17 @@
 <view>
+    <canvas class="canvas" id="canvas" canvas-id="canvas"></canvas>
     <view class="image-container">
         <image src="{{imgUrl}}"></image>
     </view>
     <view class="copywriting-container">
-        <view class="code"></view>
-        <view class="text">赶紧分享你的专属个人专属101形象海报吧~</view>
+        <view class="code" style="background-image: url({{static_base_url}}/app/acode.jpg)"></view>
+        <view class="text">赶紧分享你的个人专属101形象海报吧~</view>
     </view>
     <view class="scan-container">
         <view class="scan">扫一扫</view>
     </view>
     <view class="button-container">
-        <button class="btn" style="background-image: url({{static_base_url}}/app/share-btn.png)" open-type="share"></button>
+        <button class="btn" style="background-image: url({{static_base_url}}/app/share-btn.png)" bind:tap="saveImage"></button>
         <view class="btn" style="background-image: url({{static_base_url}}/app/again-btn.png)" bind:tap="playAgain"></view>
     </view>
 </view>
