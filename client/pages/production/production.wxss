@@ -6,7 +6,6 @@
     width: 670rpx;
     height: 846rpx;
     margin: 40rpx auto 0;
-    /*background-color: #000;*/
 }
 
 .accessory-container {
@@ -53,11 +52,18 @@
 }
 
 .tool {
-    width: 60rpx;
+    text-align: center;
 }
 
-.tool .icon {
-
+.tool i {
+    display: block;
+    width: 60rpx;
+    height: 60rpx;
+    background-size: 60rpx 60rpx;
+    background-repeat: none;
+    background-position: center;
+    border: 1px solid #e6e6e6;
+    border-radius: 50%;
 }
 
 .tool text {
@@ -74,15 +80,13 @@
 .layer-2 {
     position: absolute;
     overflow: hidden;
+    z-index: 999;
 }
 
-/*.accessory-sizable {
-    height: 100rpx;
-    width: 100rpx;
-    overflow: hidden;
-    transform-origin: top left;
-    position: relative;
-}*/
+.background-image {
+    width: 670rpx;
+    height: 846rpx;
+}
 
 .accessory-image {
     width: 100%;

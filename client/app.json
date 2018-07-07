@@ -2,9 +2,9 @@
   "pages":[
     "pages/home/home",
     "pages/analysis/analysis",
-    "pages/loading/loading",
     "pages/similarity/similarity",
-    "pages/production/production"
+    "pages/production/production",
+    "pages/result/result"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

@@ -1,6 +1,14 @@
 <view class="container">
     <canvas class="canvas" id="canvas" canvas-id="canvas"></canvas>
     <view class="layer-2" bind:tap="cancelSelect" id="layer">
+        <image
+            wx:if="{{currentBackground}}"
+            id="background"
+            class="background-image"
+            mode="aspectFill"
+            src="{{static_base_url}}/material/b-{{currentBackground}}-max.png"
+            bind:tap="cancelSelect"
+        ></image>
         <pendant-container
             wx:for="{{currentPendant}}"
             wx:item="item"
@@ -11,7 +19,7 @@
             <image
                 class="accessory-image"
                 mode="aspectFill"
-                src="images/g-{{item.index}}-max.png"
+                src="{{static_base_url}}/material/g-{{item.index}}-max.png"
                 data-key="{{item.key}}"
                 capture-catch:touchstart="movePendant"
                 capture-catch:touchmove="movePendant"
@@ -22,18 +30,18 @@
     <view class="accessory-container">   
         <view class="accessory-list" style="width:{{storage[active].length * 120}}rpx">
             <view class="accessory" wx:for="{{storage[active]}}" wx:item="item" wx:key="item">
-                <image mode="aspectFill" src="images/{{active == 'backgrounds' ? 'b' : 'g'}}-{{item}}.png" data-index="{{item}}" capture-catch:touchstart="chooseItem"></image>
+                <image mode="aspectFill" src="{{static_base_url}}/material/{{active == 'backgrounds' ? 'b' : 'g'}}-{{item}}.png" data-index="{{item}}" capture-catch:tap="chooseItem"></image>
             </view>
         </view>
     </view>
     <view class="bottom-container">
         <view class="tool-container">
-            <view id="tool" class="tool" data-value="backgrounds" bindtap="switchActive">
-                <icon type="success"></icon>
+            <view id="tool" class="tool" data-value="backgrounds" capture-catch:tap="switchActive">
+                <i style="background-image: url({{static_base_url}}/app/bg-icon.png)"></i>
                 <text>背景</text>
             </view>
-            <view id="tool" class="tool" data-value="pendants" bindtap="switchActive">
-                <icon type="success"></icon>
+            <view id="tool" class="tool" data-value="pendants" capture-catch:tap="switchActive">
+                <i style="background-image: url({{static_base_url}}/app/pd-icon.png)"></i>
                 <text>贴纸</text>
             </view>
         </view>
