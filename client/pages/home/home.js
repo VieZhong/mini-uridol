@@ -49,17 +49,17 @@ Page({
             pic: `${static_base_url}/app/twelve-person.png`,
             num: 7
         }],
-        centerPic: `${static_base_url}/app/101.jpg`,
+        centerPic: `${static_base_url}/app/center-img.png`,
         lightNum: 100,
         isClicked: false,
-        lightPic: `${static_base_url}/app/florescent-light.png`,
+        lightPic: `${static_base_url}/app/light-react2.png`,
         activeNum: 1,
         timeId:0,
         startMatchBefore:`${static_base_url}/app/start-match-before.png`,
-        startMatchAfter:`${static_base_url}/app/start-match-after.png`
+        startMatchAfter:`${static_base_url}/app/start-match-after.png`,
+        static_base_url
     },
     onReady: function() {
-        console.log('111');
         this.rollAnimation();
     },
     onStartMatch: function() {
@@ -71,7 +71,6 @@ Page({
         wx.showActionSheet({
             itemList: ['从手机相册选择', '拍照', '取消'],
             success: res => {
-                console.log(res.tapIndex);
                 if (res.tapIndex == 0) {
                     this.chooseWxImage('album');
                 }
@@ -93,13 +92,6 @@ Page({
                 this.setData({
                     tempFilePaths: res.tempFilePaths[0],
                 });
-                // const url = '../analysis/analysis?pic='+res.tempFilePaths[0]
-                //  wx.navigateTo({
-                //             url: url,
-                //             fail: () => {
-                //                 wx.showToast('上传图片失败');
-                //             }
-                //         })
                 const name = `${ new Date().valueOf()}${Math.ceil(Math.random()*1000)}.png`;
                 wx.cloud.uploadFile({
                     cloudPath: `user/${name}`,

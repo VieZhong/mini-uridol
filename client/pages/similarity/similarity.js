@@ -1,13 +1,9 @@
 const { songList, static_base_url } = require('../../utils/constant.js');
 Page({
-    onLoad: function({ name, value, fusePic }) {
-        // const similarity ='杨超越';
-        console.log(fusePic);
-        const songs = songList[name];
-        const song = songs[0];
+    onLoad: function({ name, value, fusePic,music_name,music_url}) {
         this.setData({
             similarity: name,
-            song: song,
+            song: music_name,
             value: value,
             fusePic: fusePic
         });
@@ -24,9 +20,9 @@ Page({
     data: {
         innerAudioContext: '',
         showStartMusic: true,
-        song: "",
-        lyric: 'party girl知道,姐妹为你撑腰',
-        similarity: '',
+        music_name:'',
+        music_url:'',
+        similarity:'',
         fusePic: '',
         value: 0,
         posterPic: `${static_base_url}/app/generate-poster.png`,
@@ -39,17 +35,13 @@ Page({
         this.setData({
             showStartMusic: false
         })
-        this.innerAudioContext.play(() => {
-            console.log('开始播放')
-        })
+        this.innerAudioContext.play();
     },
     stopMusic: function() {
         this.setData({
             showStartMusic: true
         });
-        this.innerAudioContext.pause(() => {
-            console.log('暂停播放');
-        })
+        this.innerAudioContext.pause();
     },
     generatePoster: function() {
         wx.navigateTo({

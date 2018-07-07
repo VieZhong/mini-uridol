@@ -1,6 +1,6 @@
 <view>
     <loading></loading>
-    <text class="title">你是我们中的谁</text>
+    <image src="{{static_base_url}}/app/who-are-you.png" class='who-img'></image>
     <view class="flex-container">
         <view class="flex-item {{index!=0?'margin-left':''}}" wx:for="{{firstRowList}}" 
         wx:key="index">
@@ -25,7 +25,7 @@
         </view>
 
         <view class="flex-item-center margin-left">
-            <image class='center-img' src='{{centerPic}}'></image>
+            <image class='center-img' src='{{static_base_url}}/app/center-img.png'></image>
         </view>
 
         <view class="flex-item margin-left">

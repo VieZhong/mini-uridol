@@ -13,19 +13,16 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        loadingFinish:function(){
-             setTimeout(()=>{
-            console.log(this.data.isLoading);
-            this.setData({
-                isLoading:false
-            });
-            console.log(this.data.isLoading);
-        },2000)
+        loadingFinish: function() {
+            setTimeout(() => {
+                this.setData({
+                    isLoading: false
+                });
+            }, 1500)
         }
     },
-    ready: function(){
-        console.log(this);
-       this.loadingFinish();
+    ready: function() {
+        this.loadingFinish();
 
     }
 })

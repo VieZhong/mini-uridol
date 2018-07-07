@@ -1,9 +1,14 @@
 <view class='analysis'>
     <view class="img-margin">
-        <image src="{{userPic}}" mode='aspectFit' class='img'></image>
-    </view>
-    <view classs='flex-content'>
-        <image src="{{sharePic}}" mode='aspectFit' class='flex-item'></image>
-        <image src="{{onceMorePic}}" mode='aspectFit' class='flex-item'></image>
+        <image src="{{userPic}}" mode='aspectFit' class='user-img'></image>
+        <view>
+        	 <image class='scan-img' mode='aspectFit' src="{{static_base_url}}/app/light-line.png"></image>
+        </view>
+       
+        <view class='text-content'>
+            <text class="loading-box {{curentNum >= 1 ?'box-1':''}} box-animation">正在分析你的图片...</text>
+            <text class="loading-box  {{curentNum >=2 ?'box-2':''}} box-animation">正在计算相似度...</text>
+            <text class="loading-box  {{curentNum >=3 ?'box-3':''}} box-animation">正在融合图片...</text>
+        </view>
     </view>
 </view>

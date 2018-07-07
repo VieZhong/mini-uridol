@@ -4,7 +4,6 @@
         <image class="music-avatar" src="{{avatar}}"></image>
         <view class="music-item">
             <text class="song-name">{{'《'+song+'》'}} </text>
-            <text class="lyric">{{lyric}}</text>
         </view>
         <image src="{{startPlaying}}" wx:if="{{showStartMusic}}"
          bindtap="startMusic" class="music-player" model="aspectFit"></image>
@@ -13,6 +12,7 @@
     </view>
     <view class='fuse-center'>
         <image src="{{fusePic}}" mode="aspectFit" class="person-img"></image>
+        <text class="similarity-box">{{'人脸相似度'+value}}</text>
     </view> 
     <image src='{{posterPic}}' mode="aspectFit" bindtap="generatePoster" class='poster'></image>
 </view>
