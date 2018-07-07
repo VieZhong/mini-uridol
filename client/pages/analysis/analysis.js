@@ -15,7 +15,7 @@ Page({
             errMsg,
             result
         }) => {
-            if (errMsg == "cloud.callFunction:ok") {
+            if (errMsg === "cloud.callFunction:ok") {
                 const value = result.value;
                 const name = result.name;
                 this.faceFuse(name, value);
@@ -37,7 +37,7 @@ Page({
             errMsg,
             result
         }) => {
-            if (errMsg == "cloud.callFunction:ok") {
+            if (errMsg === "cloud.callFunction:ok") {
                 const {
                     img_url,
                     song_id,

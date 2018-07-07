@@ -71,10 +71,10 @@ Page({
         wx.showActionSheet({
             itemList: ['从手机相册选择', '拍照', '取消'],
             success: res => {
-                if (res.tapIndex == 0) {
+                if (+res.tapIndex === 0) {
                     this.chooseWxImage('album');
                 }
-                if (res.tapIndex == 1) {
+                if (+res.tapIndex === 1) {
                     this.chooseWxImage('camera');
                 }
             },

@@ -104,7 +104,7 @@ Page({
             }
         }
     }) {
-        if (id == "tool") {
+        if (id === "tool") {
             this.setData({
                 active: value
             });
@@ -121,11 +121,11 @@ Page({
             active,
             currentPendant
         } = this.data;
-        if (active == 'backgrounds') {
+        if (active === 'backgrounds') {
             this.setData({
                 currentBackground: index
             })
-        } else if (active == 'pendants') {
+        } else if (active === 'pendants') {
             this.setData({
                 currentPendant: [...currentPendant, {
                     index,
@@ -150,30 +150,30 @@ Page({
             canvasWidth,
             canvasHeight
         } = this.data;
-        if (type == "REMOVE") {
+        if (type === "REMOVE") {
             const {
                 key
             } = item;
             this.setData({
-                currentPendant: currentPendant.filter(p => p.key != key)
+                currentPendant: currentPendant.filter(p => p.key !== key)
             })
-        } else if (type == "TRANSFORM") {
+        } else if (type === "TRANSFORM") {
             this.setData({
                 currentPendant: currentPendant.map(p => {
-                    if (p.key == item.key) {
+                    if (p.key === item.key) {
                         return item;
                     }
                     return p;
                 })
             })
-        } else if (type == "MOVE") {
+        } else if (type === "MOVE") {
             const {
                 key,
                 distance
             } = item;
             this.setData({
                 currentPendant: currentPendant.map(p => {
-                    if (p.key != key) {
+                    if (p.key !== key) {
                         return p;
                     }
                     return {
@@ -201,7 +201,7 @@ Page({
             this.setData({
                 touch_start_cor: [clientX, clientY],
                 currentPendant: currentPendant.map(p => {
-                    if (p.key == target.dataset.key) {
+                    if (p.key === target.dataset.key) {
                         return {
                             ...p,
                             editing: true
@@ -233,7 +233,7 @@ Page({
             this.setData({
                 touch_start_cor: [clientX, clientY]
             });
-        } else if (type == "touchend") {
+        } else if (type === "touchend") {
             this.setData({
                 touch_start_cor: [null, null]
             });
@@ -244,7 +244,7 @@ Page({
             id
         }
     }) {
-        if (id == "layer" || id == "background" || id == "person") {
+        if (id === "layer" || id === "background" || id === "person") {
             this.setData({
                 currentPendant: this.data.currentPendant.map(p => ({
                     ...p,
