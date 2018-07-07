@@ -1,4 +1,6 @@
-const { static_base_url } = require('../../utils/constant.js');
+const {
+    static_base_url
+} = require('../../utils/constant.js');
 
 Component({
     data: {
@@ -21,10 +23,21 @@ Component({
                 item: this.properties.info
             });
         },
-        move: function({touches}) {
-            const { clientX, clientY } = touches[0];
-            const { LT_DOT, T, W, H } = this.data;
+        move: function({
+            touches
+        }) {
+            const {
+                clientX,
+                clientY
+            } = touches[0];
+            const {
+                LT_DOT,
+                T,
+                W,
+                H
+            } = this.data;
             const size = Math.sqrt(Math.pow(clientY - LT_DOT[1], 2) / 2 + Math.pow(clientX - LT_DOT[0], 2) / 2);
+
             function transform(x) {
                 return 40 / T * x;
             }
@@ -34,17 +47,25 @@ Component({
                     ...this.properties.info,
                     size: transform(size) - 20,
                     rotation: Math.atan2(clientY - LT_DOT[1], clientX - LT_DOT[0]) * 180 / Math.PI - 45,
-                    location: [( LT_DOT[0] + size / 2 ) / W * 100, ( LT_DOT[1] + size / 2 ) / H * 100]
+                    location: [(LT_DOT[0] + size / 2) / W * 100, (LT_DOT[1] + size / 2) / H * 100]
                 }
             });
         }
     },
     ready: function() {
         let rate = 0;
+        /**
+         * It returns rate + x
+         * @params {int} x - rpx value
+         * @returns {int} real px value
+         */
         function transform(x) {
             return rate * x;
         }
-        const { location, size } = this.properties.info;
+        const {
+            location,
+            size
+        } = this.properties.info;
         wx.createSelectorQuery().select('#canvas').boundingClientRect(({
             width,
             height,
