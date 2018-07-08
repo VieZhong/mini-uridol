@@ -1,9 +1,13 @@
 /**
  * 火箭和太空人的加载动画
  */
+const {
+    static_base_url
+} = require('../../utils/constant.js');
 Component({
     data: {
-        isLoading: true
+        isLoading: true,
+        static_base_url
     },
     /**
      * 设置加载动画的显示时间

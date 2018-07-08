@@ -23,10 +23,11 @@ Page({
             result
         }) => {
             if (errMsg === "cloud.callFunction:ok") {
-                const { value, name } = result;
-                if (!value) {
+                if (!result || !result.value) {
                     wx.showToast({
                         title: '分析图片失败',
+                        duration:6000,
+                        icon:"none",
                         complete: () => {
                             wx.navigateTo({
                                 url: `../home/home`
@@ -35,7 +36,9 @@ Page({
                     });
                     return;
                 }
+                const { value, name } = result;
                 this.faceFuse(name, value);
+                return;
             }
         }).catch(err => {
             console.log('错误' + err)
@@ -70,6 +73,7 @@ Page({
                     wx.showToast({
                         title: '分析图片失败,请重新上传图片',
                         duration: 2000,
+                        icon:"none",
                         success: () => {
                             wx.navigateTo({
                                 url: `../home/home`
@@ -85,7 +89,8 @@ Page({
                     fail: () => {
                         wx.showToast({
                             title: '分析图片失败,请重新上传图片',
-                            duration: 1000
+                            duration: 6000,
+                            icon:"none"
                         });
                     }
                 });

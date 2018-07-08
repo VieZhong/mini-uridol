@@ -52,7 +52,7 @@ Component({
             const size = Math.sqrt(Math.pow(clientY - LT_DOT[1], 2) / 2 + Math.pow(clientX - LT_DOT[0], 2) / 2);
             /**
              * 计算真正的像素值
-             * @params {int} x The rpx value
+             * @param {int} x The rpx value
              * @returns {int} The real px value
              */
             function transform(x) {
@@ -77,7 +77,7 @@ Component({
         let rate = 0;
         /**
          * 计算真正的像素值
-         * @params {int} x The rpx value
+         * @param {int} x The rpx value
          * @returns {int} The real px value
          */
         function transform(x) {

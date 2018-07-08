@@ -4,7 +4,6 @@ page {
 }
 
 .loading {
-    background-image: url(https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/space.png);
     background-size: cover;
     background-attachment: fixed;
     height: 100%;

@@ -1,5 +1,5 @@
+<loading></loading>
 <view class="container" style="background-image: url({{static_base_url}}/app/backgound-pic.png)">
-    <loading></loading>
     <image src="{{static_base_url}}/app/who-are-you.png" class='container__who-img'></image>
     <view class="container__row">
         <view class="row__item {{index!=0?'row__left':''}}" wx:for="{{firstRowList}}" 

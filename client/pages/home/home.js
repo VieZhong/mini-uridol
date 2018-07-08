@@ -90,10 +90,13 @@ Page({
                 errMsg
             }) => {
                 wx.showToast({
-                    title: '上传图片失败'
+                    title: '上传图片失败',
+                    icon: "none",
+                    complete: () => {
+                        this.modal = this.selectComponent('#modal');
+                        this.modal.hideModal();
+                    }
                 });
-                this.modal = this.selectComponent('#modal');
-                this.modal.hideModal();
                 console.log(errMsg);
             }
         });
@@ -119,17 +122,21 @@ Page({
                             url: `../analysis/analysis?pic=${pic}`,
                             fail: () => {
                                 wx.showToast({
-                                    title: '上传图片失败'
+                                    title: '上传图片失败',
+                                    icon: "none"
                                 });
                             }
                         });
                     },
                     fail: () => {
                         wx.showToast({
-                            title: '上传图片失败'
+                            title: '上传图片失败',
+                            icon: "none",
+                            complete: () => {
+                                this.modal = this.selectComponent('#modal');
+                                this.modal.hideModal();
+                            }
                         });
-                        this.modal = this.selectComponent('#modal');
-                        this.modal.hideModal();
                     }
                 });
             },
