@@ -1,27 +1,14 @@
+/**
+ * 用户制作自定义背景/挂饰图片的页面
+ */
+
 const {
     static_base_url
 } = require('../../utils/constant.js');
 
-const getImageInfo = src => new Promise((resolve, reject) => {
-    wx.getImageInfo({
-        src,
-        success: ({
-            path,
-            width,
-            height
-        }) => {
-            resolve({
-                path,
-                width,
-                height
-            });
-        },
-        fail: e => {
-            reject(e)
-        }
-    })
-});
-
+const {
+    getImageInfo
+} = require('../../utils/tool.js');
 
 Page({
     data: {
@@ -39,6 +26,9 @@ Page({
         photo: null,
         static_base_url
     },
+    /**
+     * 该事件触发后，获取canvas的宽高和上下文，并获取图片的临时存放位置
+     */
     onReady: function() {
         wx.createSelectorQuery().in(this).select('#canvas').boundingClientRect(({
             width,
@@ -54,10 +44,13 @@ Page({
         }).exec();
         this.getImageTmpPath();
     },
+    /**
+     * 获取上一个页面传来的 photo_url
+     * @param  {object} query 对象
+     */
     onLoad: function({
         photo_url
     }) {
-        // const photo_url = "https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/compare/1.JPG";
         if (photo_url) {
             getImageInfo(photo_url).then(result => {
                 this.setData({
@@ -66,6 +59,10 @@ Page({
             });
         }
     },
+    /**
+     * 获取用到的背景和挂饰图片的临时存放路径，并于后续 canvas 绘画操作
+     * 这是由于小程序 canvas 绘图，drawImage 的 API 不支持网络地址，只支持本地或临时地址
+     */
     getImageTmpPath() {
         const {
             backgrounds,
@@ -96,6 +93,10 @@ Page({
         });
 
     },
+    /**
+     * 切换 背景 或 挂饰 选项
+     * @param  {obect} 页面触发的事件
+     */
     switchActive: function({
         currentTarget: {
             id,
@@ -110,6 +111,10 @@ Page({
             });
         }
     },
+    /**
+     * 选择具体的挂饰或者背景
+     * @param  {object}  页面触发的事件
+     */
     chooseItem: function({
         target: {
             dataset: {
@@ -138,6 +143,10 @@ Page({
             })
         }
     },
+    /**
+     * 对 pendant 进行移动 删除 缩放 旋转 等操作
+     * @param  {object} detail 字段带有详细 pendant 的信息
+     */
     handlePendant: function({
         detail
     }) {
@@ -184,6 +193,10 @@ Page({
             });
         }
     },
+    /**
+     * 用户移动 pendant 时，触发的事件
+     * @param  {object} 页面事件
+     */
     movePendant: function({
         type,
         target,
@@ -239,6 +252,10 @@ Page({
             });
         }
     },
+    /**
+     * 用户点击页面其他内容时，使挂件失焦
+     * @param  {object} 页面的事件
+     */
     cancelSelect: function({
         target: {
             id
@@ -253,6 +270,9 @@ Page({
             })
         }
     },
+    /**
+     * 用户完成拼图，并调至结果页面
+     */
     submit: function() {
         const {
             currentBackground,
@@ -271,9 +291,12 @@ Page({
         } = storage;
 
         canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
+
+        // 绘制背景
         if (currentBackground) {
             canvasContext.drawImage(backgroundsUrl[currentBackground - 1], 0, 0, canvasWidth, canvasHeight);
         }
+        // 绘制人物
         if (photo) {
             const {
                 path,
@@ -293,6 +316,7 @@ Page({
         }
         canvasContext.save();
 
+        // 绘制挂件
         currentPendant.forEach(p => {
             const {
                 size,
@@ -306,8 +330,9 @@ Page({
             canvasContext.drawImage(pendantsUrl[index - 1], 0, 0, size * rate, size * rate);
             canvasContext.restore();
         });
-
         canvasContext.save();
+
+        // 绘制canvas，并生成图片
         canvasContext.draw(false, () => {
             const name = `${new Date().valueOf()}${Math.ceil(Math.random() * 1000)}.png`;
             wx.canvasToTempFilePath({
