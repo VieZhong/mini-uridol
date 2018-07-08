@@ -1,4 +1,4 @@
-<view>
+<view class="container" style="background-image: url({{static_base_url}}/app/backgound-pic.png)">
     <loading></loading>
     <image src="{{static_base_url}}/app/who-are-you.png" class='who-img'></image>
     <view class="flex-container">

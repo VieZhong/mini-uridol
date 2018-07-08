@@ -1,4 +1,4 @@
-<view class='analysis'>
+<view class="container" style="background-image: url({{static_base_url}}/app/backgound-pic.png)">
     <view class="img-margin">
         <image src="{{userPic}}" mode='aspectFit' class='user-img'></image>
         <view>

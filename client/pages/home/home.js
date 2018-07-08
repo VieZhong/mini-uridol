@@ -89,6 +89,11 @@ Page({
             fail: ({
                 errMsg
             }) => {
+                wx.showToast({
+                    title: '上传图片失败'
+                });
+                this.modal = this.selectComponent('#modal');
+                this.modal.hideModal();
                 console.log(errMsg);
             }
         });
@@ -113,12 +118,20 @@ Page({
                         wx.navigateTo({
                             url: `../analysis/analysis?pic=${pic}`,
                             fail: () => {
-                                wx.showToast('上传图片失败');
+                                wx.showToast({
+                                    title: '上传图片失败'
+                                });
                             }
                         });
+                    },
+                    fail: () => {
+                        wx.showToast({
+                            title: '上传图片失败'
+                        });
+                        this.modal = this.selectComponent('#modal');
+                        this.modal.hideModal();
                     }
                 });
-
             },
             fail: ({
                 errMsg

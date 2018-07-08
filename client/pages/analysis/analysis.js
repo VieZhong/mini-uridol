@@ -9,7 +9,7 @@ Page({
      * 页面加载事件触发 调用人脸分析云函数、人脸融合云函数获得人脸相似度、融合过后人脸的图片 url
      * @param  {string} pic [待分析的人脸图片 url]
      */
-    onLoad: function({pic}) {
+    onLoad: function({ pic }) {
         this.setData({
             userPic: pic
         });
@@ -23,8 +23,18 @@ Page({
             result
         }) => {
             if (errMsg === "cloud.callFunction:ok") {
-                const value = result.value;
-                const name = result.name;
+                const { value, name } = result;
+                if (!value) {
+                    wx.showToast({
+                        title: '分析图片失败',
+                        complete: () => {
+                            wx.navigateTo({
+                                url: `../home/home`
+                            })
+                        }
+                    });
+                    return;
+                }
                 this.faceFuse(name, value);
             }
         }).catch(err => {
@@ -55,16 +65,30 @@ Page({
                     song_id,
                     song_name
                 } = result;
+                if (!img_url) {
+                    wx.showToast({
+                        title: '分析图片失败,请重新上传图片',
+                        duration: 2000,
+                        success: () => {
+                            wx.navigateTo({
+                                url: `../home/home`
+                            })
+                        }
+                    });
+                }
                 const song_url = `${static_base_url}/music/${song_id}.mp3`;
                 wx.navigateTo({
                     url: `../similarity/similarity?value=${value}&name=${name}&fusePic=${img_url}&music_name=${song_name}&music_url=${song_url}`,
                     fail: () => {
-                        wx.showToast('分析图片失败');
+                        wx.showToast({
+                            title: '分析图片失败,请重新上传图片',
+                            duration: 1000
+                        });
                     }
                 })
             }
         }).catch(err => {
-            console.log('错误' + err)
+            console.log('错误' + err);
         });
     },
     data: {
