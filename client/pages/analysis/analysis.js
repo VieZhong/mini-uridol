@@ -65,6 +65,7 @@ Page({
                     song_id,
                     song_name
                 } = result;
+
                 if (!img_url) {
                     wx.showToast({
                         title: '分析图片失败,请重新上传图片',
@@ -77,6 +78,7 @@ Page({
                     });
                     return;
                 }
+
                 const song_url = `${static_base_url}/music/${song_id}.mp3`;
                 wx.navigateTo({
                     url: `../similarity/similarity?value=${value}&name=${name}&fusePic=${img_url}&music_name=${song_name}&music_url=${song_url}`,

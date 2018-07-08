@@ -163,8 +163,12 @@ exports.main = async function(event, context, callback) {
         }
     });
 
+    const {
+        img_url
+    } = JSON.parse(body);
+
     return {
-        ...JSON.parse(body),
+        img_url: img_url && img_url.replace("http", "https"),
         song_id: model_id,
         song_name: songs[model_id]
     };
