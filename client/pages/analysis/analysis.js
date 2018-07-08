@@ -55,6 +55,7 @@ Page({
                     song_id,
                     song_name
                 } = result;
+                console.log(img_url)
                 const song_url = `${static_base_url}/music/${song_id}.mp3`;
                 wx.navigateTo({
                     url: `../similarity/similarity?value=${value}&name=${name}&fusePic=${img_url}&music_name=${song_name}&music_url=${song_url}`,
