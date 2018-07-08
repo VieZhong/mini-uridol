@@ -13,12 +13,12 @@
             <view class="flex-container-col">
                 <view class="flex-item-2">
                     <image mode='aspectFit' src="{{fivePic.pic}}" class='person-img'></image>
-                    <image mode='aspectFit' src="{{lightPic}}" 
+                    <image  src="{{lightPic}}" 
                     class="light-border  {{activeNum ===12 ? 'light-show': ''}}"></image>
                 </view>
                 <view class="flex-item-2 top-32">
                     <image mode='aspectFit' src="{{sixPic.pic}}" class='person-img'></image>
-                     <image mode='aspectFit' src="{{lightPic}}" 
+                     <image  src="{{lightPic}}" 
                      class="light-border  {{activeNum ===11 ? 'light-show': ''}}"></image>
                 </view>
             </view>
@@ -32,12 +32,12 @@
             <view class="flex-container-col">
                 <view class="flex-item-2">
                     <image mode='aspectFit' src="{{sevenPic.pic}}" class='person-img'></image>
-                    <image mode='aspectFit' src="{{lightPic}}" 
+                    <image src="{{lightPic}}" 
                     class="light-border {{activeNum ===5 ? 'light-show': ''}}"></image>
                 </view>
                 <view class="flex-item-2 top-32">
                     <image mode='aspectFit' src="{{eightPic.pic}}" class='person-img'></image>
-                    <image mode='aspectFit' src="{{lightPic}}" 
+                    <image  src="{{lightPic}}" 
                     class="light-border {{activeNum === 6?'light-show':''}}"></image>
                 </view>
             </view>

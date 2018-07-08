@@ -1,74 +1,87 @@
-page{
-	width: 100%;
-	height: 100%;
-	background-image: url(https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/backgound-pic.png);
-	background-size: 750rpx 1334rpx;
-	background-position: center;
+page {
+    width: 100%;
+    height: 100%;
+    background-image: url(https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/backgound-pic.png);
+    background-size: 750rpx 1334rpx;
+    background-position: center;
 }
-.title{
-	line-height: 140rpx;
-	text-align: center;
-	font-size: 30rpx;
-	color: #000000;
-	width: 750rpx;
-	display: block;
-	margin: 0 auto;
-}
-.music-container{
-	 width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items:center;
-	
-}
-.music-avatar{
-	width: 58rpx;
-	height: 58rpx;
-	border-radius: 50%;
-}
-.music-item{
-	margin-left:32rpx;
-	width: 360rpx;
-}
-.song-name{
-	display: block;
-	font-size: 32rpx;
-}
-.music-player{
-	width: 58rpx;
-	height: 58rpx;
-}
-.lyric{
-	font-size: 20rpx;
-	color: #000000;
-	display: block;
-	margin-left: 20rpx;
-}
-.fuse-center{
-	width: 650rpx;
-	margin: 0 auto;
-}
-.person-img{
-	width: 670rpx;
-	height: 760rpx;
-	margin-top:40rpx;
-}
-.poster{
-	display: block;
-	width: 570rpx;
-	height: 92rpx;
-	margin: 40rpx auto ;
 
+.title {
+    line-height: 160rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #000000;
+    width: 750rpx;
+    display: block;
+    margin: 0 auto;
+    font-weight: bold;
 }
-.similarity-box{
-	position: absolute;
-	margin-top:514rpx;
-	height: 100rpx;
+
+.music-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 20rpx 0rpx;
+    border-radius: 0 100rpx 100rpx 0;
+}
+
+.music-avatar {
+    width: 68rpx;
+    height: 68rpx;
+    border-radius: 50%;
+    margin-left: 32rpx;
+}
+
+.music-item {
+    margin-left: 32rpx;
+}
+
+.song-name {
+    display: block;
+    font-size: 32rpx;
+}
+
+.music-player {
+    width: 52rpx;
+    height: 52rpx;
+    margin-left: 122rpx;
+}
+
+.fuse-center {
+    width: 626rpx;
+    height: 752rpx;
+    margin: 60rpx auto 40rpx auto;
+    background-image: url("https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/light-white-border.png");
+    background-size: 626rpx 752rpx;
+    background-position: center;
+    text-align: center;
+    position: relative;
+}
+
+.person-img {
+    width: 670rpx;
+    height: 700rpx;
+    margin-top: 40rpx;
+}
+
+.poster {
+    display: block;
+    width: 570rpx;
+    height: 92rpx;
+    margin: 40rpx auto;
+}
+
+.similarity-box {
+    position: absolute;
+    height: 100rpx;
+    width: 294rpx;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
     text-align: center;
     line-height: 100rpx;
     color: white;
     padding: 10rpx 30rpx;
+    bottom:138rpx;
+    left: 163rpx;
+
 }

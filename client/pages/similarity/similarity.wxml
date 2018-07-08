@@ -1,9 +1,9 @@
 <view>
     <text class="title">和你最相似的是《{{song}}》里的{{similarity}}</text>
-    <view class="music-container">
+    <view class="music-container" style="width: {{songBarWth}}">
         <image class="music-avatar" src="{{avatar}}"></image>
         <view class="music-item">
-            <text class="song-name">{{'《'+song+'》'}} </text>
+            <text class="song-name" id='song-text'>{{'《'+song+'》'}} </text>
         </view>
         <image src="{{startPlaying}}" wx:if="{{showStartMusic}}"
          bindtap="startMusic" class="music-player" model="aspectFit"></image>
@@ -12,7 +12,7 @@
     </view>
     <view class='fuse-center'>
         <image src="{{fusePic}}" mode="aspectFit" class="person-img"></image>
-        <text class="similarity-box">{{'人脸相似度'+value}}</text>
+        <text class="similarity-box">人脸相似度{{value}}%</text>
     </view> 
     <image src='{{posterPic}}' mode="aspectFit" bindtap="generatePoster" class='poster'></image>
 </view>

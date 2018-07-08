@@ -1,104 +1,120 @@
-page{
-  width: 100%;
-  height: 100%;
-}
-.loading-backgound{
-  background-image: url(https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/space.png);
-  background-size: cover;
-  background-attachment: fixed;
-  height:100%;
-  position: absolute;
-  top:0;
-  left: 0;
-  z-index: 999;
-  width: 100%;
-}
-.progress-bar{
-border-radius: 5px;
-width: 720rpx;
-height: 14rpx;
-}
-.progress-bar-static{
-	position: relative;
-	background-color: #ccc;
-	margin-left: 15rpx;
-	margin-top:200rpx;
-}
-.progress-bar-loading{
-	animation: animate-positive linear 1.2s forwards;
-	background-color: #ff6881;
-	position: absolute;
-	top:0;
-	left: 0;
+page {
+    width: 100%;
+    height: 100%;
 }
 
-.load-img{
-	position: absolute;
-
-}
-.text-center{
-	display: block;
-	width: 200rpx;
-	margin: 0 auto;
-	color: white;
-	margin-top:30rpx;
-	font-size: 32rpx;
-	text-align: center;
-}
-.rocket{
+.loading-backgound {
+    background-image: url(https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/space.png);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
     position: absolute;
-	width: 100rpx;
-    height:44rpx;
-	left: -20rpx;
-    top:-14rpx;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
 }
-.animate-rokect{
-	-webkit-animation: roket-animation linear 1.2s forwards;
-          animation: roket-animation linear 1.2s forwards;
+
+.progress-bar {
+    border-radius: 5px;
+    width: 720rpx;
+    height: 14rpx;
 }
+
+.progress-bar-static {
+    position: relative;
+    background-color: #ccc;
+    margin-left: 15rpx;
+    margin-top: 200rpx;
+}
+
+.progress-bar-loading {
+    animation: animate-positive linear 1.2s forwards;
+    background-color: #ff6881;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.load-img {
+    position: absolute;
+}
+
+.text-center {
+    display: block;
+    width: 200rpx;
+    margin: 0 auto;
+    color: white;
+    margin-top: 30rpx;
+    font-size: 32rpx;
+    text-align: center;
+}
+
+.rocket {
+    position: absolute;
+    width: 100rpx;
+    height: 44rpx;
+    left: -60rpx;
+    top: -14rpx;
+}
+
+.animate-rokect {
+    -webkit-animation: roket-animation linear 1.2s forwards;
+    animation: roket-animation linear 1.2s forwards;
+}
+
 .animate-hor {
-  -webkit-animation: hor-animation linear 1.5s forwards;
-          animation: hor-animation linear 1.5s forwards;
+    -webkit-animation: hor-animation linear 1.5s forwards;
+    animation: hor-animation linear 1.5s forwards;
 }
+
 .animate-vertical {
-	width: 200rpx;
-  -webkit-animation: vertical-animation cubic-bezier(0.5, -0.5, 1, 1) 1.5s forwards;
-          animation: vertical-animation cubic-bezier(0.5, -0.5, 1, 1) 1.5s forwards;
+    width: 200rpx;
+    -webkit-animation: vertical-animation cubic-bezier(0.5, -0.5, 1, 1) 1.5s forwards;
+    animation: vertical-animation cubic-bezier(0.5, -0.5, 1, 1) 1.5s forwards;
 }
+
 @-webkit-keyframes animate-positive {
-    0% { width: 0%;}
+    0% {
+        width: 0%;
+    }
 }
+
 @keyframes animate-positive {
-    0% { width:0%; }
+    0% {
+        width: 0%;
+    }
 }
 
 @-webkit-keyframes roket-animation {
-  0% {
-    -webkit-transform: translateX(0rpx);
-            transform: translateX(0rpx);
-  }
-  100% {
-    -webkit-transform: translateX(720rpx);
-            transform: translateX(720rpx);
-  }
+    0% {
+        -webkit-transform: translateX(0rpx);
+        transform: translateX(0rpx);
+    }
+    100% {
+        -webkit-transform: translateX(720rpx);
+        transform: translateX(720rpx);
+    }
 }
+
 @-webkit-keyframes hor-animation {
-  0% {
-    -webkit-transform: translateX(0rpx);
-            transform: translateX(0rpx);
-  }
-  100% {
-    -webkit-transform: translateX(400rpx);
-            transform: translateX(400rpx);
-  }
+    0% {
+        -webkit-transform: translateX(0rpx);
+        transform: translateX(0rpx);
+    }
+    100% {
+        -webkit-transform: translateX(400rpx);
+        transform: translateX(400rpx);
+    }
 }
+
 @-webkit-keyframes vertical-animation {
-  0% {
-    -webkit-transform: translateY(0rpx);
-            transform: translateY(0rpx);
-  }
-  100% {
-    -webkit-transform: translateY(200rpx);
-            transform: translateY(200rpx);
-  }
+    0% {
+        -webkit-transform: translateY(0rpx);
+        transform: translateY(0rpx);
+    }
+    100% {
+        -webkit-transform: translateY(200rpx);
+        transform: translateY(200rpx);
+    }
 }

@@ -36,8 +36,8 @@
  .light-border{
      position: absolute;
      width: 152rpx;
-     height: 178rpx;
-     top:0;
+     height: 168rpx;
+     top:-2rpx;
      left:0;
      opacity: 0
  }

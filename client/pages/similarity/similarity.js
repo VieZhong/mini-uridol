@@ -2,13 +2,13 @@ const {
     static_base_url
 } = require('../../utils/constant.js');
 Page({
-    onLoad: function({
-        name,
-        value,
-        fusePic,
-        music_name,
-        music_url
-    }) {
+    onLoad: function({name,music_name,value,fusePic, music_url}) {
+        // const {name,music_name,value,fusePic} ={
+        //     name:"孟美岐",
+        //     music_name:"我就是这种女孩",
+        //     value:"67%",
+        //     fusePic:"http://activity-10053123.image.myqcloud.com/LtuRnhEvgsWI"
+        // }
         this.setData({
             similarity: name,
             song: music_name,
@@ -23,6 +23,25 @@ Page({
             console.log(res.errCode)
         })
     },
+    onShow: function() {
+         const query = wx.createSelectorQuery();
+         const that = this;
+         let screenWdh = 0;
+         wx.getSystemInfo({
+            success: ({screenWidth}) => {
+                screenWdh = screenWidth;
+            },
+            fail:({screenWidth}) => {
+                screenWdh = screenWidth;
+            }
+         });
+         query.select('#song-text').boundingClientRect((rect) => {
+            const width = rect.width*(750/screenWdh)+338;
+            this.setData({
+                songBarWth:  width + 'rpx'
+            });
+        }).exec();
+    },
     data: {
         innerAudioContext: '',
         showStartMusic: true,
@@ -31,6 +50,7 @@ Page({
         similarity: '',
         fusePic: '',
         value: 0,
+        songBarWth:'',
         posterPic: `${static_base_url}/app/generate-poster.png`,
         startPlaying: `${static_base_url}/app/start-Playing.png`,
         stopPlaying: `${static_base_url}/app/stop-playing.png`,
