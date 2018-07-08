@@ -20,6 +20,7 @@ Page({
     },
     /**
      * 该事件触发后，获取canvas的宽高和上下文
+     * @returns
      */
     onReady: function() {
         wx.createSelectorQuery().in(this).select('#canvas').boundingClientRect(({
@@ -36,6 +37,7 @@ Page({
     /**
      * 获取上一个页面传入的 url 参数
      * @param  {object} query object
+     * @returns
      */
     onLoad: function({
         url
@@ -58,6 +60,7 @@ Page({
      * 2. 利用canvas绘图，把 两张图片 和 文案信息 画进canvas
      * 3. canvas 生成图片
      * 4. 把图片保存至本地
+     * @returns
      */
     saveImage: function() {
         const {

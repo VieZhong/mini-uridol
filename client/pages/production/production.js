@@ -28,6 +28,7 @@ Page({
     },
     /**
      * 该事件触发后，获取canvas的宽高和上下文，并获取图片的临时存放位置
+     * @returns
      */
     onReady: function() {
         wx.createSelectorQuery().in(this).select('#canvas').boundingClientRect(({
@@ -47,6 +48,7 @@ Page({
     /**
      * 获取上一个页面传来的 photo_url
      * @param  {object} query 对象
+     * @returns
      */
     onLoad: function({
         photo_url
@@ -62,6 +64,7 @@ Page({
     /**
      * 获取用到的背景和挂饰图片的临时存放路径，并于后续 canvas 绘画操作
      * 这是由于小程序 canvas 绘图，drawImage 的 API 不支持网络地址，只支持本地或临时地址
+     * @returns
      */
     getImageTmpPath() {
         const {
@@ -96,6 +99,7 @@ Page({
     /**
      * 切换 背景 或 挂饰 选项
      * @param  {obect} 页面触发的事件
+     * @returns
      */
     switchActive: function({
         currentTarget: {
@@ -114,6 +118,7 @@ Page({
     /**
      * 选择具体的挂饰或者背景
      * @param  {object}  页面触发的事件
+     * @returns
      */
     chooseItem: function({
         target: {
@@ -146,6 +151,7 @@ Page({
     /**
      * 对 pendant 进行移动 删除 缩放 旋转 等操作
      * @param  {object} detail 字段带有详细 pendant 的信息
+     * @returns
      */
     handlePendant: function({
         detail
@@ -196,6 +202,7 @@ Page({
     /**
      * 用户移动 pendant 时，触发的事件
      * @param  {object} 页面事件
+     * @returns
      */
     movePendant: function({
         type,
@@ -255,6 +262,7 @@ Page({
     /**
      * 用户点击页面其他内容时，使挂件失焦
      * @param  {object} 页面的事件
+     * @returns
      */
     cancelSelect: function({
         target: {
@@ -272,6 +280,7 @@ Page({
     },
     /**
      * 用户完成拼图，并调至结果页面
+     * @returns
      */
     submit: function() {
         const {

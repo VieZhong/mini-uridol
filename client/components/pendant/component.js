@@ -23,6 +23,7 @@ Component({
     methods: {
         /**
          * 移除挂饰
+         * @returns
          */
         remove: function() {
             this.triggerEvent("handle", {
@@ -32,7 +33,8 @@ Component({
         },
         /**
          * 对挂饰进行 旋转缩放 操作
-         * @param  {object} 事件对象
+         * @param {object} 事件对象
+         * @returns
          */
         move: function({
             touches
@@ -69,6 +71,7 @@ Component({
     },
     /**
      * 获得canvas的 宽高 / 左上角位置 等信息
+     * @returns
      */
     ready: function() {
         let rate = 0;
