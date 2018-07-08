@@ -1,10 +1,10 @@
+/**
+ * 带图片的模态框组件
+ */
 const {
     static_base_url
 } = require('../../utils/constant.js');
 Component({
-    /**
-     * 组件的属性列表
-     */
     properties: {
         title: {
             type: String,
@@ -19,31 +19,33 @@ Component({
             value: '确定',
         },
     },
-    /**
-     * 组件的初始数据
-     */
     data: {
         isShowModal: false,
         goIt: `${static_base_url}/app/go-it.png`,
         tipImg: 'https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/wang-yi-bo.png'
     },
-
-    /**
-     * 组件的方法列表
-     */
     methods: {
+        /**
+         * 组价触发父组件的事件
+         */
         _onTap: function() {
-            this.triggerEvent('myevent', {})
+            this.triggerEvent('myevent', {});
         },
+        /**
+         * 显示模态框
+         */
         showModal: function() {
             this.setData({
                 isShowModal: true
-            })
+            });
         },
+        /**
+         * 隐藏模态框
+         */
         hideModal: function() {
             this.setData({
                 isShowModal: false
-            })
+            });
         }
     }
 })
