@@ -9,10 +9,11 @@ Component({
         isLoading: true,
         static_base_url
     },
-    /**
-     * 设置加载动画的显示时间
-     */
     methods: {
+        /**
+         * 设置加载动画的显示时间
+         * @returns {undefined}
+         */
         loadingFinish: function() {
             setTimeout(() => {
                 this.setData({
@@ -23,6 +24,7 @@ Component({
     },
     /**
      * 页面加载事件触发动画显示
+     * @returns {undefined}
      */
     ready: function() {
         this.loadingFinish();

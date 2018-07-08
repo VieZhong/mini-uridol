@@ -27,12 +27,14 @@ Component({
     methods: {
         /**
          * 组价触发父组件的事件
+         * @returns {undefined}
          */
         _onTap: function() {
             this.triggerEvent('myevent', {});
         },
         /**
          * 显示模态框
+         * @returns {undefined}
          */
         showModal: function() {
             this.setData({
@@ -41,6 +43,7 @@ Component({
         },
         /**
          * 隐藏模态框
+         * @returns {undefined}
          */
         hideModal: function() {
             this.setData({

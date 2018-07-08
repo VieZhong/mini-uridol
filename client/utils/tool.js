@@ -3,7 +3,7 @@
 
 /**
  * @param  {string} src 图片的网络地址
- * @return {object} Promise对象
+ * @return {object} Promise 对象
  */
 export const getImageInfo = src => new Promise((resolve, reject) => {
     wx.getImageInfo({

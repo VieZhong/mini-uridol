@@ -1,6 +1,10 @@
 //app.js
 
 App({
+	/**
+     * 初始化云 wx.cloud
+     * @returns {undefined}
+     */
     onLaunch: function() {
 
         wx.cloud.init({

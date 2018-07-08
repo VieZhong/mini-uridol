@@ -54,7 +54,7 @@ app.init({
  * @param  {object} event 传入对象事件参数
  * @param  {object} context
  * @param  {callback} callback 回调
- * @return {object} 包含两个字段：{ value, name }
+ * @return {object} obj 包含两个字段：{ value, name }
  */
 exports.main_handler = async function(event, context, callback) {
 

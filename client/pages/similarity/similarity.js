@@ -12,6 +12,7 @@ Page({
      * @param  {number} options.value      [人脸相似度百分比]
      * @param  {string} options.fusePic    [人脸融合的图片的url]
      * @param  {string} options.music_url  [云服务器上音乐的url]
+     * @returns {undefined}
      */
     onLoad: function({ name, music_name, value, fusePic, music_url }) {
         this.setData({
@@ -30,6 +31,7 @@ Page({
     },
     /**
      * 显示页面时候 创建音乐播放器动态改变播放器栏的宽度
+     * @returns {undefined}
      */
     onShow: function() {
         const query = wx.createSelectorQuery();
@@ -66,6 +68,7 @@ Page({
     },
     /**
      * 播放音乐事件触发显示播放按钮
+     * @returns {undefined}
      */
     startMusic: function() {
         this.setData({
@@ -75,6 +78,7 @@ Page({
     },
     /**
      * 暂停播放音乐事件触发显示暂停按钮
+     * @returns {undefined}
      */
     stopMusic: function() {
         this.setData({
@@ -84,6 +88,7 @@ Page({
     },
     /**
      * 生成我的海报事件 跳转到海报页面
+     * @returns {undefined}
      */
     generatePoster: function() {
         wx.navigateTo({

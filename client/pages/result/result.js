@@ -20,7 +20,7 @@ Page({
     },
     /**
      * 该事件触发后，获取canvas的宽高和上下文
-     * @returns
+     * @returns {undefined}
      */
     onReady: function() {
         wx.createSelectorQuery().in(this).select('#canvas').boundingClientRect(({
@@ -37,7 +37,7 @@ Page({
     /**
      * 获取上一个页面传入的 url 参数
      * @param  {object} query object
-     * @returns
+     * @returns {undefined}
      */
     onLoad: function({
         url
@@ -48,6 +48,7 @@ Page({
     },
     /**
      * 再玩一次，重新路由至主页
+     * @returns {undefined}
      */
     playAgain: function() {
         wx.navigateTo({
@@ -60,7 +61,7 @@ Page({
      * 2. 利用canvas绘图，把 两张图片 和 文案信息 画进canvas
      * 3. canvas 生成图片
      * 4. 把图片保存至本地
-     * @returns
+     * @returns {undefined}
      */
     saveImage: function() {
         const {
