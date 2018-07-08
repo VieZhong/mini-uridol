@@ -1,4 +1,5 @@
-<view class='loading' wx:if="{{isLoading}}">
+<view class='loading' wx:if="{{isLoading}}" 
+style="background-image: url({{static_base_url}}/app/space.png)">
     <view class="loading__progress-bar loading__progress-bar_static">
         <view class="loading__progress-bar loading__progress-bar_animation">
             <image src='https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/rocket.png' mode='aspectFit' class='loading__rocket loading__rocket_animation'></image>

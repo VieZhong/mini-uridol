@@ -17,7 +17,7 @@ Page({
         this.setData({
             similarity: name,
             song: music_name,
-            value: value,
+            value: Math.round(value),
             fusePic: fusePic
         });
         this.innerAudioContext = wx.createInnerAudioContext();
@@ -33,7 +33,6 @@ Page({
      */
     onShow: function() {
         const query = wx.createSelectorQuery();
-        const that = this;
         let screenWdh = 0;
         wx.getSystemInfo({
             success: ({ screenWidth }) => {
