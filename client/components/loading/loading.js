@@ -1,9 +1,12 @@
+/**
+ * 火箭和太空人的加载动画
+ */
 Component({
     data: {
         isLoading: true
     },
     /**
-     * 动画加载完毕以后隐藏动画
+     * 设置加载动画的显示时间
      */
     methods: {
         loadingFinish: function() {
@@ -11,12 +14,11 @@ Component({
                 this.setData({
                     isLoading: false
                 });
-            }, 1500)
+            }, 1500);
         }
     },
     /**
-     * 组件加载完成以后显示动画
-     * @return {[type]} [description]
+     * 页面加载事件触发动画显示
      */
     ready: function() {
         this.loadingFinish();

@@ -1,3 +1,6 @@
+/**
+ * 人脸分析页面 获取人脸相似度 人脸融合图片
+ */
 const {
     static_base_url
 } = require('../../utils/constant.js');
@@ -26,7 +29,7 @@ Page({
             }
         }).catch(err => {
             console.log('错误' + err)
-        })
+        });
         this.textAnimation();
     },
     /**
@@ -62,7 +65,7 @@ Page({
             }
         }).catch(err => {
             console.log('错误' + err)
-        })
+        });
     },
     data: {
         userPic: '',
@@ -85,6 +88,6 @@ Page({
             } else {
                 return;
             }
-        }, 2000)
+        }, 2000);
     }
 })

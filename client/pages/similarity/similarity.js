@@ -1,3 +1,6 @@
+/**
+ * 人脸融合图片和人脸相似度展示页面
+ */
 const {
     static_base_url
 } = require('../../utils/constant.js');
@@ -17,13 +20,13 @@ Page({
             value: value,
             fusePic: fusePic
         });
-        this.innerAudioContext = wx.createInnerAudioContext()
+        this.innerAudioContext = wx.createInnerAudioContext();
         this.innerAudioContext.autoplay = false;
         this.innerAudioContext.src = music_url;
         this.innerAudioContext.onError((res) => {
             console.log(res.errMsg);
             console.log(res.errCode);
-        })
+        });
     },
     /**
      * 显示页面时候 创建音乐播放器动态改变播放器栏的宽度
@@ -67,7 +70,7 @@ Page({
     startMusic: function() {
         this.setData({
             showStartMusic: false
-        })
+        });
         this.innerAudioContext.play();
     },
     /**
@@ -88,6 +91,6 @@ Page({
             fail: () => {
                 wx.showToast('生成海报失败');
             }
-        })
+        });
     }
 })

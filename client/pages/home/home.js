@@ -1,5 +1,5 @@
 /**
- * Created by zyy on 2018/6/30.
+ *首页展示11位小姐姐的图片 用户拍照上传照片匹配小姐姐
  */
 const {
     static_base_url
@@ -69,7 +69,6 @@ Page({
      * 开始匹配 弹出提示框
      */
     onStartMatch: function() {
-        // this.isClicked=true;
         this.modal = this.selectComponent('#modal');
         this.modal.showModal();
     },
@@ -92,7 +91,7 @@ Page({
             }) => {
                 console.log(errMsg);
             }
-        })
+        });
     },
     /**
      * 拍照和选择照片 将照片上传到云服务器上
@@ -145,12 +144,12 @@ Page({
                 })
                 this.rollAnimation();
             }
-        }, 300)
+        }, 300);
     },
     /**
      * 页面卸载清除定时器
      */
     unOnload: function() {
-        clearTimeout(this.data.timeId)
+        clearTimeout(this.data.timeId);
     }
 })
