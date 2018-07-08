@@ -2,42 +2,42 @@
     position: relative;
 }
 
-.canvas, .layer-2 {
+.container__canvas, .container__layer {
     width: 670rpx;
     height: 846rpx;
     margin: 40rpx auto 0;
 }
 
-.accessory-container {
+.container__accessory-container {
     width: 670rpx;
     margin: 40rpx auto;
     overflow-x: auto;
 }
 
-.accessory-list {
+.accessory-container__list {
     display: flex;
     justify-content: space-between;
     height: 100rpx;
 }
 
-.accessory-list .accessory {
+.list__item {
     height: 100rpx;
     width: 100rpx;
     overflow: hidden;
 }
 
-.accessory-list .accessory image {
+.list__item image {
     width: 100rpx;
     height: 100rpx;
     overflow: hidden;
 }
 
-.accessory-container::-webkit-scrollbar {
+.container__accessory-container::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
 
-.bottom-container {
+.container__bottom-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -45,17 +45,17 @@
     margin: auto;
 }
 
-.tool-container {
+.bottom-container__tool-container {
     display: flex;
     justify-content: space-between;
     width: 180rpx;
 }
 
-.tool {
+.tool-container__tool {
     text-align: center;
 }
 
-.tool i {
+.tool-container__tool i {
     display: block;
     width: 60rpx;
     height: 60rpx;
@@ -66,34 +66,34 @@
     border-radius: 50%;
 }
 
-.tool text {
+.bottom-container__tool text {
     font-size: 20rpx;
     text-align: center;
     color: #000;
 }
 
-.button {
+.bottom-container__button {
     width: 216rpx;
     height: 98rpx;
 }
 
-.layer-2 {
+.container__layer {
     position: absolute;
     overflow: hidden;
     z-index: 999;
 }
 
-.background-image {
+.layer__background-image {
     width: 670rpx;
     height: 846rpx;
 }
 
-.accessory-image {
+.layer__accessory-image {
     width: 100%;
     height: 100%;
 }
 
-.person-image {
+.layer__person-image {
     width: 536rpx;
     height: 676.8rpx;
     position: absolute;
