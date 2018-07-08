@@ -1,13 +1,9 @@
 Component({
-    /**
-     * 组件的初始数据
-     */
     data: {
         isLoading: true
     },
-
     /**
-     * 组件的方法列表
+     * 动画加载完毕以后隐藏动画
      */
     methods: {
         loadingFinish: function() {
@@ -18,8 +14,11 @@ Component({
             }, 1500)
         }
     },
+    /**
+     * 组件加载完成以后显示动画
+     * @return {[type]} [description]
+     */
     ready: function() {
         this.loadingFinish();
-
     }
 })

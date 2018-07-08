@@ -59,14 +59,23 @@ Page({
         startMatchAfter: `${static_base_url}/app/start-match-after.png`,
         static_base_url
     },
+    /**
+     * 该事件触发老虎机的动画效果
+     */
     onReady: function() {
         this.rollAnimation();
     },
+    /**
+     * 开始匹配 弹出提示框
+     */
     onStartMatch: function() {
         // this.isClicked=true;
         this.modal = this.selectComponent('#modal');
         this.modal.showModal();
     },
+    /**
+     * 点击提示框以后触发选择照片的事件
+     */
     onMyEvent: function() {
         wx.showActionSheet({
             itemList: ['从手机相册选择', '拍照', '取消'],
@@ -81,10 +90,14 @@ Page({
             fail: ({
                 errMsg
             }) => {
-                console.log(errMsg)
+                console.log(errMsg);
             }
         })
     },
+    /**
+     * 拍照和选择照片 将照片上传到云服务器上
+     * @param  {string} type [照片的操作种类]
+     */
     chooseWxImage: function(type) {
         wx.chooseImage({
             sourceType: [type],
@@ -103,7 +116,7 @@ Page({
                             fail: () => {
                                 wx.showToast('上传图片失败');
                             }
-                        })
+                        });
                     }
                 });
 
@@ -111,10 +124,13 @@ Page({
             fail: ({
                 errMsg
             }) => {
-                console.log(errMsg)
+                console.log(errMsg);
             }
         });
     },
+    /**
+     * 模拟老虎机顺时针的动画效果
+     */
     rollAnimation: function() {
         this.data.timeId = setTimeout(() => {
             const num = this.data.activeNum + 1;
@@ -131,6 +147,9 @@ Page({
             }
         }, 300)
     },
+    /**
+     * 页面卸载清除定时器
+     */
     unOnload: function() {
         clearTimeout(this.data.timeId)
     }

@@ -2,13 +2,15 @@ const {
     static_base_url
 } = require('../../utils/constant.js');
 Page({
+    /**
+     * 页面加载事件获取上一个页面传过来的 query 对象
+     * @param  {string} options.name       [与11位小姐姐中相似度最高的人名字]
+     * @param  {string} options.music_name [音乐的歌名]
+     * @param  {number} options.value      [人脸相似度百分比]
+     * @param  {string} options.fusePic    [人脸融合的图片的url]
+     * @param  {string} options.music_url  [云服务器上音乐的url]
+     */
     onLoad: function({name,music_name,value,fusePic, music_url}) {
-        // const {name,music_name,value,fusePic} ={
-        //     name:"孟美岐",
-        //     music_name:"我就是这种女孩",
-        //     value:"67%",
-        //     fusePic:"http://activity-10053123.image.myqcloud.com/LtuRnhEvgsWI"
-        // }
         this.setData({
             similarity: name,
             song: music_name,
@@ -19,10 +21,13 @@ Page({
         this.innerAudioContext.autoplay = false;
         this.innerAudioContext.src = music_url;
         this.innerAudioContext.onError((res) => {
-            console.log(res.errMsg)
-            console.log(res.errCode)
+            console.log(res.errMsg);
+            console.log(res.errCode);
         })
     },
+    /**
+     * 显示页面时候 创建音乐播放器动态改变播放器栏的宽度
+     */
     onShow: function() {
          const query = wx.createSelectorQuery();
          const that = this;
@@ -55,20 +60,28 @@ Page({
         startPlaying: `${static_base_url}/app/start-Playing.png`,
         stopPlaying: `${static_base_url}/app/stop-playing.png`,
         avatar: `${static_base_url}/app/avatar.jpg`,
-        poster: 'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000',
     },
+    /**
+     * 播放音乐事件触发显示播放按钮
+     */
     startMusic: function() {
         this.setData({
             showStartMusic: false
         })
         this.innerAudioContext.play();
     },
+    /**
+     * 暂停播放音乐事件触发显示暂停按钮
+     */
     stopMusic: function() {
         this.setData({
             showStartMusic: true
         });
         this.innerAudioContext.pause();
     },
+    /**
+     * 生成我的海报事件 跳转到海报页面
+     */
     generatePoster: function() {
         wx.navigateTo({
             url: `../production/production?photo_url=${this.data.fusePic}`,

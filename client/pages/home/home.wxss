@@ -98,11 +98,8 @@
      margin: 0 auto;
  }
  .match-img{
+     display: block;
      width: 572rpx;
      height:94rpx;
-     position: absolute;
-     bottom: 70rpx;
-     left: 50%;
-     margin-left: -286rpx;
-    
+     margin: 80rpx auto
  }
