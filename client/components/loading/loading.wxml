@@ -1,14 +1,12 @@
-<view class='loading-backgound' wx:if="{{isLoading}}">
-	<view class='top'>
-		<view class="progress-bar progress-bar-static">
-	        <view class="progress-bar progress-bar-loading">
-	        	 <image src='https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/rocket.png' mode='aspectFit' class=' rocket animate-rokect'></image>
-	        </view>	
-	    </view>
-	</view>
-	<text class='text-center'>正在加载...</text>
-	<view class='animate-hor'>
-		<image src='https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/astronaut.png' class='animate-vertical' mode='aspectFit'></image>
-	</view>
-	<slot></slot>
+<view class='loading' wx:if="{{isLoading}}">
+    <view class="loading__progress-bar loading__progress-bar_static">
+        <view class="loading__progress-bar loading__progress-bar_animation">
+            <image src='https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/rocket.png' mode='aspectFit' class='loading__rocket loading__rocket_animation'></image>
+        </view>
+    </view>
+    <text class='loading__text'>正在加载...</text>
+    <view class='loading__hor'>
+        <image src='https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/astronaut.png' class='loading__vertical' mode='aspectFit'></image>
+    </view>
+    <slot></slot>
 </view>

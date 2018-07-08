@@ -75,6 +75,7 @@ Page({
                             })
                         }
                     });
+                    return;
                 }
                 const song_url = `${static_base_url}/music/${song_id}.mp3`;
                 wx.navigateTo({
@@ -85,7 +86,7 @@ Page({
                             duration: 1000
                         });
                     }
-                })
+                });
             }
         }).catch(err => {
             console.log('错误' + err);
@@ -106,12 +107,11 @@ Page({
             const curentNum = this.data.curentNum + 1;
             this.setData({
                 curentNum
-            })
-            if (curentNum <= 3) {
-                this.textAnimation();
-            } else {
+            });
+            if (curentNum > 3) {
                 return;
             }
+            this.textAnimation();
         }, 2000);
     }
 })

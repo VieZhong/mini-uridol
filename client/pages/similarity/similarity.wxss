@@ -5,7 +5,7 @@
     background-position: center;
 }
 
-.title {
+.container__title {
     line-height: 160rpx;
     text-align: center;
     font-size: 32rpx;
@@ -16,7 +16,7 @@
     font-weight: bold;
 }
 
-.music-container {
+.container__music {
     display: flex;
     align-items: center;
     background-color: white;
@@ -25,29 +25,26 @@
     align-self:flex-start;
 }
 
-.music-avatar {
+.music__avatar {
     width: 68rpx;
     height: 68rpx;
     border-radius: 50%;
     margin-left: 32rpx;
 }
 
-.music-item {
+.music__name {
     margin-left: 32rpx;
-}
-
-.song-name {
     display: block;
     font-size: 32rpx;
 }
 
-.music-player {
+.music__player {
     width: 52rpx;
     height: 52rpx;
     margin-left: 122rpx;
 }
 
-.fuse-center {
+.container__fuse {
     width: 626rpx;
     height: 752rpx;
     margin: 60rpx auto 40rpx auto;
@@ -58,20 +55,14 @@
     position: relative;
 }
 
-.person-img {
+.fuse__img {
     width: 670rpx;
     height: 700rpx;
     margin-top: 40rpx;
 }
 
-.poster {
-    display: block;
-    width: 570rpx;
-    height: 92rpx;
-    margin: 40rpx auto;
-}
 
-.similarity-box {
+.fuse__similarity {
     position: absolute;
     height: 100rpx;
     width: 294rpx;
@@ -80,8 +71,15 @@
     text-align: center;
     line-height: 100rpx;
     color: white;
-    padding: 10rpx 30rpx;
+    padding: 10rpx 20rpx;
     bottom:138rpx;
     left: 163rpx;
 
+}
+
+.container__poster{
+    display: block;
+    width: 570rpx;
+    height: 92rpx;
+    margin: 40rpx auto;
 }

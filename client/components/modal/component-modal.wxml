@@ -1,14 +1,13 @@
-<view class="modal {{isShowModal?'show-modal':'hideModal'}}">
-    <view class="modal-mask" bindtap="hideModal"></view>
-    <view class="model-content {{isShowModal?'modal-animation':''}}">
+<view class="modal {{isShowModal?'modal_show':'modal_hide'}}">
+    <view class="modal__mask" bindtap="hideModal"></view>
+    <view class="model__content {{isShowModal?'modal__animation':''}}">
         <!-- <text class='text-block'>{{title}}</text> -->
-        <image mode="aspectFit" src="{{tipImg}}" class="top-img"></image>
-        <view class="uder-text">
-            <text class='text-block'>正脸得到的结果更准确</text>
-            <text class='text-block'>请保持微笑噢^o^</text>
+        <image mode="aspectFit" src="{{tipImg}}" class="content__img"></image>
+        <view class="content__text">
+            <text class='text__block'>正脸得到的结果更准确</text>
+            <text class='text__block'>请保持微笑噢^o^</text>
         </view>
-        <!-- <button type="default" bindtap="_onTap" class="button">Go it</button> -->
-        <image src="{{goIt}}" class="goit-img" bindtap="onStartMatch"
+        <image src="{{goIt}}" class="content__go-it" bindtap="onStartMatch"
          bindtap="_onTap"></image>
     </view>
     <slot></slot>

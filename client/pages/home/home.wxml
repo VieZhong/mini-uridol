@@ -1,59 +1,59 @@
 <view class="container" style="background-image: url({{static_base_url}}/app/backgound-pic.png)">
     <loading></loading>
-    <image src="{{static_base_url}}/app/who-are-you.png" class='who-img'></image>
-    <view class="flex-container">
-        <view class="flex-item {{index!=0?'margin-left':''}}" wx:for="{{firstRowList}}" 
+    <image src="{{static_base_url}}/app/who-are-you.png" class='container__who-img'></image>
+    <view class="container__row">
+        <view class="row__item {{index!=0?'row__left':''}}" wx:for="{{firstRowList}}" 
         wx:key="index">
-            <image mode='aspectFit' src="{{item.pic}}" class='person-img'></image>
-            <image class="light-border  {{activeNum ===item.num ? 'light-show': ''}}" src="{{lightPic}}"></image>
+            <image mode='aspectFit' src="{{item.pic}}" class='row__img'></image>
+            <image class="row__light  {{activeNum ===item.num ? 'row__light_show': ''}}" src="{{lightPic}}"></image>
         </view>
     </view>
-    <view class="flex-container top-32">
-        <view class="flex-item">
-            <view class="flex-container-col">
-                <view class="flex-item-2">
-                    <image mode='aspectFit' src="{{fivePic.pic}}" class='person-img'></image>
+    <view class="container__row container__top-32">
+        <view class="row__item">
+            <view class="item__col">
+                <view class="col__thing">
+                    <image mode='aspectFit' src="{{fivePic.pic}}" class='row__img'></image>
                     <image  src="{{lightPic}}" 
-                    class="light-border  {{activeNum ===12 ? 'light-show': ''}}"></image>
+                    class="row__light  {{activeNum ===12 ? 'row__light_show': ''}}"></image>
                 </view>
-                <view class="flex-item-2 top-32">
-                    <image mode='aspectFit' src="{{sixPic.pic}}" class='person-img'></image>
+                <view class="col__thing container__top-32">
+                    <image mode='aspectFit' src="{{sixPic.pic}}" class='row__img'></image>
                      <image  src="{{lightPic}}" 
-                     class="light-border  {{activeNum ===11 ? 'light-show': ''}}"></image>
+                     class="row__light  {{activeNum ===11 ? 'row__light_show': ''}}"></image>
                 </view>
             </view>
         </view>
 
-        <view class="flex-item-center margin-left">
-            <image class='center-img' src='{{static_base_url}}/app/center-img.png'></image>
+        <view class="row__item-center row__left">
+            <image class='row__center-img' src='{{static_base_url}}/app/center-img.png'></image>
         </view>
 
-        <view class="flex-item margin-left">
-            <view class="flex-container-col">
-                <view class="flex-item-2">
-                    <image mode='aspectFit' src="{{sevenPic.pic}}" class='person-img'></image>
+        <view class="row__item row__left">
+            <view class="item__col">
+                <view class="col__thing">
+                    <image mode='aspectFit' src="{{sevenPic.pic}}" class='row__img'></image>
                     <image src="{{lightPic}}" 
-                    class="light-border {{activeNum ===5 ? 'light-show': ''}}"></image>
+                    class="row__light {{activeNum ===5 ? 'row__light_show': ''}}"></image>
                 </view>
-                <view class="flex-item-2 top-32">
-                    <image mode='aspectFit' src="{{eightPic.pic}}" class='person-img'></image>
+                <view class="col__thing container__top-32">
+                    <image mode='aspectFit' src="{{eightPic.pic}}" class='row__img'></image>
                     <image  src="{{lightPic}}" 
-                    class="light-border {{activeNum === 6?'light-show':''}}"></image>
+                    class="row__light {{activeNum === 6?'row__light_show':''}}"></image>
                 </view>
             </view>
         </view>
     </view>
 
-    <view class="flex-container top-32">
-        <view class="flex-item {{index!=0?'margin-left':''}}" wx:for="{{fourRowList}}" wx:key="index">
-             <image mode='aspectFit' src="{{item.pic}}" class='person-img'></image>
+    <view class="container__row container__top-32">
+        <view class="row__item {{index!=0?'row__left':''}}" wx:for="{{fourRowList}}" wx:key="index">
+             <image mode='aspectFit' src="{{item.pic}}" class='row__img'></image>
              <image src="{{lightPic}}" 
-             class="light-border  {{activeNum ===item.num ? 'light-show': ''}}"></image>
+             class="row__light  {{activeNum ===item.num ? 'row__light_show': ''}}"></image>
         </view>
     </view>
 
-    <image src="{{startMatchBefore}}" class="match-img" bindtap="onStartMatch" wx:if="{{!isClicked}}"></image>
-    <image src="{{startMatchAfter}}" class="match-img" wx:if="{{isClicked}}">
+    <image src="{{startMatchBefore}}" class="container__match-img" bindtap="onStartMatch" wx:if="{{!isClicked}}"></image>
+    <image src="{{startMatchAfter}}" class="container__match-img" wx:if="{{isClicked}}">
     </image>
     <component-modal bindmyevent="onMyEvent" id="modal"></component-modal>
 </view>

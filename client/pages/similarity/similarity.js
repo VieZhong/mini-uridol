@@ -13,7 +13,7 @@ Page({
      * @param  {string} options.fusePic    [人脸融合的图片的url]
      * @param  {string} options.music_url  [云服务器上音乐的url]
      */
-    onLoad: function({name,music_name,value,fusePic, music_url}) {
+    onLoad: function({ name, music_name, value, fusePic, music_url }) {
         this.setData({
             similarity: name,
             song: music_name,
@@ -32,21 +32,21 @@ Page({
      * 显示页面时候 创建音乐播放器动态改变播放器栏的宽度
      */
     onShow: function() {
-         const query = wx.createSelectorQuery();
-         const that = this;
-         let screenWdh = 0;
-         wx.getSystemInfo({
-            success: ({screenWidth}) => {
+        const query = wx.createSelectorQuery();
+        const that = this;
+        let screenWdh = 0;
+        wx.getSystemInfo({
+            success: ({ screenWidth }) => {
                 screenWdh = screenWidth;
             },
-            fail:({screenWidth}) => {
+            fail: ({ screenWidth }) => {
                 screenWdh = screenWidth;
             }
-         });
-         query.select('#song-text').boundingClientRect((rect) => {
-            const width = rect.width*(750/screenWdh)+338;
+        });
+        query.select('#song-text').boundingClientRect((rect) => {
+            const width = rect.width * (750 / screenWdh) + 338;
             this.setData({
-                songBarWth:  width + 'rpx'
+                songBarWth: width + 'rpx'
             });
         }).exec();
     },
@@ -58,7 +58,7 @@ Page({
         similarity: '',
         fusePic: '',
         value: 0,
-        songBarWth:'',
+        songBarWth: '',
         posterPic: `${static_base_url}/app/generate-poster.png`,
         startPlaying: `${static_base_url}/app/start-Playing.png`,
         stopPlaying: `${static_base_url}/app/stop-playing.png`,

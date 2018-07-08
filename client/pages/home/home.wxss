@@ -4,7 +4,7 @@
      background-size: 750rpx 1334rpx;
      background-position: center;
  }
- .who-img{
+ .container__who-img{
      width: 439rpx;
      height: 65rpx;
      display: block;
@@ -25,14 +25,11 @@
      margin-left: -150rpx;
  }
 
- .top-32 {
+ .container__top-32 {
      margin-top: 32rpx;
  }
- .person-img{
-     height:164rpx;
-     width:148rpx; 
- }
- .light-border{
+ 
+ .row__light{
      position: absolute;
      width: 152rpx;
      height: 168rpx;
@@ -40,63 +37,49 @@
      left:0;
      opacity: 0
  }
- .light-show{
+ .row__light_show{
      opacity: 1;
  }
- .flex-container {
+ .container__row {
      width: 100%;
      display: -webkit-flex;
      display: flex;
      justify-content: center;
  }
+ .row__item {
+     flex-basis: 148rpx;
+     height: 164rpx;
+     position: relative;
+ }
+ .row__img{
+     height:164rpx;
+     width:148rpx; 
+ }
 
- .flex-container-col {
+ .item__col {
      width: 100%;
      display: -webkit-flex;
      display: flex;
      flex-direction: column;
  }
-
- .flex-item {
-     flex-basis: 148rpx;
-     height: 164rpx;
-     position: relative;
- }
-
- .flex-item-2 {
+ .col__thing {
      width: 148rpx;
      height: 164rpx;
      position: relative;
  }
-
- .flex-item-col {
-     height: 164rpx;
-     width: 148rpx;
- }
-
- .flex-item-3 {
-     justify-content: space-between;
- }
-
- .flex-item-center {
+ .row__item-center {
      flex-basis: 338rpx;
      height: 360rpx;
  }
- .center-img{
+ .row__center-img{
      width: 338rpx;
      height: 360rpx;
  }
 
- .margin-left {
+ .row__left {
      margin-left: 42rpx;
  }
-
- .title {
-     text-align: center;
-     display: block;
-     margin: 0 auto;
- }
- .match-img{
+ .container__match-img{
      display: block;
      width: 572rpx;
      height:94rpx;
