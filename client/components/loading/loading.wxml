@@ -2,7 +2,7 @@
 	<view class='top'>
 		<view class="progress-bar progress-bar-static">
 	        <view class="progress-bar progress-bar-loading">
-	        	 <image src='https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/rocket.png' mode='aspectFit'  class=' rocket animate-rokect'></image>
+	        	 <image src='https://development-bb7096-1256746843.cos.ap-shanghai.myqcloud.com/app/rocket.png' mode='aspectFit' class=' rocket animate-rokect'></image>
 	        </view>	
 	    </view>
 	</view>

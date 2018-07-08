@@ -1,3 +1,7 @@
+/**
+ *  挂饰组件
+ */
+
 const {
     static_base_url
 } = require('../../utils/constant.js');
@@ -17,12 +21,19 @@ Component({
         }
     },
     methods: {
+        /**
+         * 移除挂饰
+         */
         remove: function() {
             this.triggerEvent("handle", {
                 type: 'REMOVE',
                 item: this.properties.info
             });
         },
+        /**
+         * 对挂饰进行 旋转缩放 操作
+         * @param  {object} 事件对象
+         */
         move: function({
             touches
         }) {
@@ -37,7 +48,11 @@ Component({
                 H
             } = this.data;
             const size = Math.sqrt(Math.pow(clientY - LT_DOT[1], 2) / 2 + Math.pow(clientX - LT_DOT[0], 2) / 2);
-
+            /**
+             * 计算真正的像素值
+             * @params {int} x The rpx value
+             * @returns {int} The real px value
+             */
             function transform(x) {
                 return 40 / T * x;
             }
@@ -52,10 +67,13 @@ Component({
             });
         }
     },
+    /**
+     * 获得canvas的 宽高 / 左上角位置 等信息
+     */
     ready: function() {
         let rate = 0;
         /**
-         * It returns rate + x
+         * 计算真正的像素值
          * @params {int} x The rpx value
          * @returns {int} The real px value
          */
