@@ -1,10 +1,10 @@
 <view class="container">
-    <canvas class="canvas" id="canvas" canvas-id="canvas"></canvas>
-    <view class="layer-2" bind:tap="cancelSelect" id="layer">
+    <canvas class="container__canvas" id="canvas" canvas-id="canvas"></canvas>
+    <view class="container__layer" bind:tap="cancelSelect" id="layer">
         <image
             wx:if="{{currentBackground}}"
             id="background"
-            class="background-image"
+            class="layer__background-image"
             mode="aspectFill"
             src="{{storage.backgroundsUrl ? storage.backgroundsUrl[currentBackground - 1] : static_base_url + '/material/b-' + currentBackground + '-max.png'}}"
             bind:tap="cancelSelect"
@@ -12,7 +12,7 @@
         <image
             wx:if="{{photo}}"
             id="person"
-            class="person-image"
+            class="layer__person-image"
             mode="aspectFit"
             src="{{photo.path}}"
             bind:tap="cancelSelect"
@@ -25,7 +25,7 @@
             bind:handle="handlePendant"
         >
             <image
-                class="accessory-image"
+                class="layer__accessory-image"
                 mode="aspectFill"
                 src="{{storage.pendantsUrl ? storage.pendantsUrl[item.index - 1] : static_base_url + '/material/g-' + item.index + '-max.png'}}"
                 data-key="{{item.key}}"
@@ -35,26 +35,26 @@
             ></image>
         </pendant-container>
     </view>
-    <view class="accessory-container">   
-        <view class="accessory-list" style="width:{{storage[active].length * 120}}rpx">
-            <view class="accessory" wx:for="{{storage[active]}}" wx:item="item" wx:key="item">
+    <view class="container__accessory-container">   
+        <view class="accessory-container__list" style="width:{{storage[active].length * 120}}rpx">
+            <view class="list__item" wx:for="{{storage[active]}}" wx:item="item" wx:key="item">
                 <image mode="aspectFill" src="{{static_base_url}}/material/{{active === 'backgrounds' ? 'b' : 'g'}}-{{item}}.png" data-index="{{item}}" capture-catch:tap="chooseItem"></image>
             </view>
         </view>
     </view>
-    <view class="bottom-container">
-        <view class="tool-container">
-            <view id="tool" class="tool" data-value="backgrounds" capture-catch:tap="switchActive">
+    <view class="container__bottom-container">
+        <view class="bottom-container__tool-container">
+            <view id="tool" class="tool-container__tool" data-value="backgrounds" capture-catch:tap="switchActive">
                 <i style="background-image: url({{static_base_url}}/app/bg-icon.png)"></i>
                 <text>背景</text>
             </view>
-            <view id="tool" class="tool" data-value="pendants" capture-catch:tap="switchActive">
+            <view id="tool" class="tool-container__tool" data-value="pendants" capture-catch:tap="switchActive">
                 <i style="background-image: url({{static_base_url}}/app/pd-icon.png)"></i>
                 <text>贴纸</text>
             </view>
         </view>
         <view>
-            <image src="{{static_base_url}}/app/ok-btn.png" class="button" bind:tap="submit"></image>
+            <image src="{{static_base_url}}/app/ok-btn.png" class="bottom-container__button" bind:tap="submit"></image>
         </view>
     </view>
 </view>

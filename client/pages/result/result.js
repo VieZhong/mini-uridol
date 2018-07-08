@@ -114,7 +114,7 @@ Page({
                                         title: '保存图片成功',
                                         icon: 'success',
                                         duration: 2000
-                                    })
+                                    });
                                 }
                             });
                         }

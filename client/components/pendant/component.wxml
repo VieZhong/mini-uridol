@@ -1,7 +1,7 @@
-<view class="accessory-sizable {{info.editing ? 'border-show' : 'border-hide'}}" style="width:{{info.size}}rpx;height:{{info.size}}rpx;transform:rotate({{info.rotation}}deg);margin-left:{{-info.size/2}}rpx;margin-top:{{-info.size/2}}rpx;top:{{info.location[1]}}%;left:{{info.location[0]}}%;">
+<view class="accessory_sizable {{info.editing ? 'border_show' : 'border_hide'}}" style="width:{{info.size}}rpx;height:{{info.size}}rpx;transform:rotate({{info.rotation}}deg);margin-left:{{-info.size/2}}rpx;margin-top:{{-info.size/2}}rpx;top:{{info.location[1]}}%;left:{{info.location[0]}}%;">
 	<slot></slot>
 	<block wx:if="{{info.editing}}">	
-		<icon type="clear" size="12" class="del-icon" bind:touchend="remove"></icon>
-		<image src="{{static_base_url}}/app/sizable.png" class="size-icon" bind:touchmove="move"></image>
+		<icon type="clear" size="12" class="accessory__icon_del" bind:touchend="remove"></icon>
+		<image src="{{static_base_url}}/app/sizable.png" class="accessory__icon_size" bind:touchmove="move"></image>
 	</block>
 </view>

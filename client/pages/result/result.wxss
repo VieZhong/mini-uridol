@@ -5,7 +5,7 @@
     margin: 40rpx auto 0;
 }
 
-.image-container image {
+.image-container__image {
     width: 100%;
     height: 100%;
 }
@@ -17,7 +17,7 @@
     margin: 44rpx auto 0;
 }
 
-.copywriting-container .code {
+.copywriting-container__code {
     width: 100rpx;
     height: 100rpx;
     background-repeat: no-repeat;
@@ -26,7 +26,7 @@
     background-color: #ccc;
 }
 
-.copywriting-container .text {
+.copywriting-container__text {
     flex: 1;
     font-size: 32rpx;
     color: rgba(0, 0, 0, .63);
@@ -42,7 +42,7 @@
     margin: 8rpx auto 12rpx;
 }
 
-.scan-container .scan {
+.scan-container__scan {
     width: 100rpx;
     text-align: center;
     font-size: 20rpx;
@@ -59,7 +59,7 @@
     border-top: 1rpx solid #e6e6e6;
 }
 
-.button-container .btn {
+.button-container__btn {
     width: 274rpx;
     height: 80rpx;
     background-color: transparent;
