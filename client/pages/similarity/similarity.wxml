@@ -1,4 +1,4 @@
-<view>
+<view class="container" style="background-image: url({{static_base_url}}/app/backgound-pic.png)">
     <text class="title">和你最相似的是《{{song}}》里的{{similarity}}</text>
     <view class="music-container" style="width: {{songBarWth}}">
         <image class="music-avatar" src="{{avatar}}"></image>

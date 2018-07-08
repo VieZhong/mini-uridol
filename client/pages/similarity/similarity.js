@@ -21,7 +21,7 @@ Page({
             fusePic: fusePic
         });
         this.innerAudioContext = wx.createInnerAudioContext();
-        this.innerAudioContext.autoplay = false;
+        this.innerAudioContext.autoplay = true;
         this.innerAudioContext.src = music_url;
         this.innerAudioContext.onError((res) => {
             console.log(res.errMsg);
@@ -52,7 +52,7 @@ Page({
     },
     data: {
         innerAudioContext: '',
-        showStartMusic: true,
+        showStartMusic: false,
         music_name: '',
         music_url: '',
         similarity: '',
@@ -62,7 +62,8 @@ Page({
         posterPic: `${static_base_url}/app/generate-poster.png`,
         startPlaying: `${static_base_url}/app/start-Playing.png`,
         stopPlaying: `${static_base_url}/app/stop-playing.png`,
-        avatar: `${static_base_url}/app/avatar.jpg`,
+        avatar: `${static_base_url}/app/101.jpg`,
+        static_base_url
     },
     /**
      * 播放音乐事件触发显示播放按钮
