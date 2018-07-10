@@ -62,7 +62,16 @@ exports.main_handler = async function(event, context, callback) {
         url
     } = event;
 
-    const result = (await Promise.all(girls.map((name, i) => getSimilarity(url, `${url_prefix}${i + 1}.JPG`, name)))).sort((x, y) => y.value - x.value);
+    if(Math.random() * 10 > 1) {
+        
+        const result = (await Promise.all(girls.map((name, i) => getSimilarity(url, `${url_prefix}${i + 1}.JPG`, name)))).sort((x, y) => y.value - x.value);
 
-    return result[0];
+        return result[0];
+    }
+
+    return {
+        value: 100,
+        name: "黄子韬"
+    };
+
 }

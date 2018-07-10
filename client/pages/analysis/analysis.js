@@ -10,7 +10,9 @@ Page({
      * @param  {string} pic [待分析的人脸图片 url]
      * @returns {undefined}
      */
-    onLoad: function({ pic }) {
+    onLoad: function({
+        pic
+    }) {
         this.setData({
             userPic: pic
         });
@@ -23,12 +25,13 @@ Page({
             errMsg,
             result
         }) => {
+            console.log(result)
             if (errMsg === "cloud.callFunction:ok") {
                 if (!result || !result.value) {
                     wx.showToast({
                         title: '分析图片失败',
-                        duration:6000,
-                        icon:"none",
+                        duration: 6000,
+                        icon: "none",
                         complete: () => {
                             wx.navigateTo({
                                 url: `../home/home`
@@ -37,7 +40,10 @@ Page({
                     });
                     return;
                 }
-                const { value, name } = result;
+                const {
+                    value,
+                    name
+                } = result;
                 this.faceFuse(name, value);
                 return;
             }
@@ -75,7 +81,7 @@ Page({
                     wx.showToast({
                         title: '分析图片失败,请重新上传图片',
                         duration: 2000,
-                        icon:"none",
+                        icon: "none",
                         success: () => {
                             wx.navigateTo({
                                 url: `../home/home`
@@ -92,7 +98,7 @@ Page({
                         wx.showToast({
                             title: '分析图片失败,请重新上传图片',
                             duration: 6000,
-                            icon:"none"
+                            icon: "none"
                         });
                     }
                 });
